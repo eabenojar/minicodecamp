@@ -1,0 +1,46 @@
+.home-page {
+  background-color: #f0f0f0;
+  min-height: 90vh;
+  height: auto;
+  width: 100vw;
+  padding: 15px;
+}
+
+/* Lesson.js css section */
+
+.lesson-container {
+  height: 325px;
+  width: 50vw;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 200px;
+}
+.lesson-header {
+  height: 65px;
+  width: 100%;
+  background-color: #3e6898;
+  border-radius: 5px 5px 0 0;
+}
+.lesson-body {
+  padding: 30px;
+}
+.lesson-button {
+  background-clip: none;
+  border: 3px solid lightgray;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #474747;
+}
+.lesson-title {
+  margin: 0 0 20px 0;
+}
+.lesson-type {
+  margin: 0 0 20px 0;
+}
+.lesson-description {
+  margin: 0 0 20px 0;
+}
+pre[class*="language-"] {
+  background: #2d2d2d;
+}
