@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const LessonSchema = new Schema(
   {
-    courseCreator: [{ type: mongoose.Schema.Types.ObjectId, ref: "course" }],
     courseType: {
       type: String,
       required: true
