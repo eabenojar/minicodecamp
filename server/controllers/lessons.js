@@ -52,6 +52,7 @@ module.exports = {
   getAllCourses: (req, res) => {
     console.log("IN SERVER GET COURSES");
     Course.find()
+      .populate("lessons")
       .then(course => res.send(course))
       .catch(err => {
         console.log(err);
