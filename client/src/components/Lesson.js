@@ -1,18 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../styles/home.css";
-// import Prism from "prismjs";
-var beautify = require("js-beautify").js_beautify;
 
-{
-  /* <pre className="language-javascript">
-          <code className="language-javascript" />
-        </pre> */
-}
 class Lesson extends Component {
   constructor(props) {
     super(props);
   }
+  viewCourse = lesson => {
+    console.log("clicked", lesson);
+  };
   render() {
+    var colors = ["#FF7373", "#73FF86", "#739BFF", "#FFCA73"];
+    var random_color = colors[Math.floor(Math.random() * colors.length)];
     const { lesson } = this.props;
     return (
       <div className="lesson-container">
@@ -21,7 +20,20 @@ class Lesson extends Component {
           <h3 className="lesson-type">Lesson</h3>
           <h2 className="lesson-title">{lesson.courseType}</h2>
           <p className="lesson-description">{lesson.courseDescription}</p>
-          <button className="lesson-button">Start Learning</button>
+        </div>
+        <div className="lesson-footer">
+          <Link
+            className="lesson-button"
+            onClick={this.viewCourse.bind(this, lesson)}
+            to={{
+              pathname: `/course/lessons/${lesson._id}`,
+              state: {
+                lessons: lesson.lessons
+              }
+            }}
+          >
+            Start Learning
+          </Link>
         </div>
       </div>
     );

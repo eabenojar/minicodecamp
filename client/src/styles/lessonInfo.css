@@ -1,0 +1,23 @@
+.lessoninfo-container {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.lesson-page-title {
+  height: 100px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.lesson-content {
+  width: 80%;
+}
+.lesson-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 25px;
+}

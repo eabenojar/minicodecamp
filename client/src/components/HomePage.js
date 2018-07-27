@@ -18,8 +18,13 @@ class HomePage extends Component {
     return (
       <div className="home-page">
         <div className="home-container">
-          <h2>Web Developer Lessons</h2>
-          <p>These are the current lessons available.</p>
+          <div className="home-intro-section">
+            <h2 className="home-page-title">Front End Development</h2>
+            <p className="home-page-description">
+              Each course is designed to teach you the fundamentals in
+              programming by following an easy step by step guide.
+            </p>
+          </div>
           <div className="courses-container">
             {state.courseReducer.courses.map((lesson, i) => {
               return <Lesson key={i} lesson={lesson} />;

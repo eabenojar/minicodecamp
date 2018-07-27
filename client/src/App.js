@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import router from "./router";
 import "./styles/App.css";
-import "prismjs/themes/prism-okaidia.css";
+import "prismjs/themes/prism.css";
 import "prismjs/prism.js";
 
 class App extends Component {

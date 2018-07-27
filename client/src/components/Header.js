@@ -6,11 +6,24 @@ class Header extends Component {
   render() {
     return (
       <div className="header-container">
-        <Link to="/">Redux Auth</Link>
-        <Link to="/signup">Sign up</Link>
-        <Link to="/signin">Sign in</Link>
-        <Link to="/signout">Signout</Link>
-        <Link to="/feature">Feature</Link>
+        <div className="header-section">
+          <div className="header-section-left">
+            <Link className="header-link" to="/course">
+              Courses
+            </Link>
+            <Link className="header-link" to="/course">
+              Quizes
+            </Link>
+            <Link className="header-link" to="/course">
+              Projects
+            </Link>
+          </div>
+          <div className="header-section-right">
+            <Link className="header-link" to="/signin">
+              Sign in
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
