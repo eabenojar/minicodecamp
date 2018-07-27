@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(morgan("combined"));
-app.use(bodyParser.json({ type: "*/*" }));
+app.use(bodyParser.json());
 router(app);
 
 // DB config

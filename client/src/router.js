@@ -5,7 +5,7 @@ import Signup from "./components/auth/Signup";
 
 export default (
   <Switch>
-    <Route component={HomePage} exact path="/" />
+    <Route component={HomePage} exact path="/course" />
     <Route component={Signup} path="/signup" />
   </Switch>
 );

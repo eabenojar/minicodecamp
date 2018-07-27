@@ -50,8 +50,9 @@ module.exports = {
       });
   },
   getAllCourses: (req, res) => {
+    console.log("IN SERVER GET COURSES");
     Course.find()
-      .then(course => res.json(course))
+      .then(course => res.send(course))
       .catch(err => {
         console.log(err);
         res.send("ERROR COULD NOT RETRIEVE COURSES");
@@ -99,5 +100,12 @@ module.exports = {
         console.log(err);
         res.send('ERROR CAN"T FIND COURSE');
       });
+  },
+  updateCourse: (req, res) => {
+    const id = req.params.id;
+    Course.findByIdAndUpdate(id, {
+      courseType: req.body.courseType,
+      courseDescription: req.body.courseDescription
+    }).then(course => res.json(course));
   }
 };

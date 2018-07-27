@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.post("/create/course", lessons.createCourse);
   app.post("/create/lesson", lessons.createLesson);
   app.get("/course/:id", lessons.getOneCourse);
-  app.get("/courses", lessons.getAllCourses);
+  app.get("/course", lessons.getAllCourses);
   app.delete("/delete/lesson/:id", lessons.deleteLesson);
   app.delete("/delete/course/", lessons.deleteCourse);
 };
