@@ -6,11 +6,14 @@ module.exports = {
     console.log(req.body, "INSIDE CREATE COURSE");
     const newCourse = new Course({
       courseType: req.body.courseType,
-      courseDescription: req.body.courseDescription
+      courseDescription: req.body.courseDescription,
+      courseColor: req.body.courseColor
     });
     newCourse
       .save()
-      .then(result => res.json(result))
+      .then(result => {
+        res.json(result);
+      })
       .catch(err => console.log(err));
   },
   createLesson: (req, res) => {

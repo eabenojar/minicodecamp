@@ -37,6 +37,9 @@ const CourseSchema = new Schema(
       type: String,
       required: true
     },
+    courseColor: {
+      type: String
+    },
     lessons: [{ type: mongoose.Schema.Types.ObjectId, ref: "lesson" }]
   },
   { timestamps: true }
