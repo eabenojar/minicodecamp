@@ -15,7 +15,14 @@ class Lesson extends Component {
     const { lesson } = this.props;
     return (
       <div className="lesson-container">
-        <div className="lesson-header" />
+        <div
+          className="lesson-header"
+          style={{
+            backgroundColor: lesson.courseColor
+              ? lesson.courseColor
+              : random_color
+          }}
+        />
         <div className="lesson-body">
           <h3 className="lesson-type">Lesson</h3>
           <h2 className="lesson-title">{lesson.courseType}</h2>
@@ -28,7 +35,8 @@ class Lesson extends Component {
             to={{
               pathname: `/course/lessons/${lesson._id}`,
               state: {
-                lessons: lesson.lessons
+                lessons: lesson.lessons,
+                lesson
               }
             }}
           >

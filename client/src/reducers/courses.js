@@ -1,7 +1,8 @@
 import {
-  GET_COURSES
+  GET_COURSES,
   // GET_LESSONS,
-  // POST_COURSE,
+  POST_COURSE,
+  POST_LESSON
   // POST_LESSON,
   // DELETE_COURSE,
   // DELETE_LESSON
@@ -19,6 +20,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         courses: action.payload
+      };
+    case POST_COURSE:
+      return {
+        ...state,
+        courses: [...state.courses, action.payload]
+      };
+    case POST_LESSON:
+      return {
+        ...state,
+        courses: [...state.courses, action.payload]
       };
     default:
       return state;

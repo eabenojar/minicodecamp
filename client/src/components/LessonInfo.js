@@ -20,28 +20,39 @@ class LessonInfo extends Component {
         }
       }
       `;
-    // const result = beautify(test);
-    console.log(this.props, "LESSONINFO PROPS");
     const { location } = this.props;
     const { state } = location;
+    console.log(this.props, "LESSONINFO PROPS", state.lesson.courseColor);
+
     return (
       <div className="lessoninfo-container">
-        <div className="lesson-page-title">
-          <h2>{this.props.location.state.lessons[0].courseType} lessons</h2>
+        <div className="lesson-page-title-section">
+          <h2 className="lesson-page-title">
+            {this.props.location.state.lessons[0].courseType} Lessons
+          </h2>
         </div>
         <div className="lesson-content">
           {state.lessons.map(lesson => {
             return (
-              <div className="lesson-section">
-                <h4>Lesson {lesson.lessonNumber}</h4>
-                <h2>{lesson.lessonTitle}</h2>
-                <p>{lesson.lessonDescription}</p>
-                <div>
-                  <pre className="language-javascript">
-                    <code className="language-javascript">
-                      {beautify(lesson.lessonCode)}
-                    </code>
-                  </pre>
+              <div>
+                <div
+                  className="lesson-section"
+                  style={{
+                    borderLeft: `${state.lesson.courseColor} `
+                      ? `6px solid ${state.lesson.courseColor}`
+                      : `none`
+                  }}
+                >
+                  <h4>Lesson {lesson.lessonNumber}</h4>
+                  <h2>{lesson.lessonTitle}</h2>
+                  <p>{lesson.lessonDescription}</p>
+                  <div>
+                    <pre className="language-javascript">
+                      <code className="language-javascript">
+                        {beautify(lesson.lessonCode)}
+                      </code>
+                    </pre>
+                  </div>
                 </div>
               </div>
             );

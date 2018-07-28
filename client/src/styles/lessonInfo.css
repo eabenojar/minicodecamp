@@ -7,17 +7,30 @@
   align-items: center;
   flex-direction: column;
 }
-.lesson-page-title {
+.lesson-page-title-section {
   height: 100px;
   width: 80%;
   display: flex;
   align-items: center;
 }
+.lesson-page-title {
+  font-size: 40px;
+  font-weight: 800;
+}
 .lesson-content {
   width: 80%;
 }
+
 .lesson-section {
+  position: relative;
   background-color: #fff;
-  padding: 20px;
+  padding: 20px 20px 20px 25px;
   margin-bottom: 25px;
+}
+.lesson-section:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
 }

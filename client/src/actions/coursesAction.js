@@ -26,15 +26,22 @@ export const getLessons = () => {
   };
 };
 
-export const postCourse = () => {
-  return {
-    type: POST_COURSE
-  };
+export const postCourse = course => dispatch => {
+  axios.post("/create/course", course).then(res => {
+    console.log("INSIDE POST COURSE", course);
+    dispatch({
+      type: POST_COURSE,
+      payload: res.data
+    });
+  });
 };
-export const postLesson = () => {
-  return {
-    type: POST_LESSON
-  };
+export const postLesson = lesson => dispatch => {
+  axios.post("/create/lesson", lesson).then(res => {
+    dispatch({
+      type: POST_LESSON,
+      payload: res.data
+    });
+  });
 };
 export const deleteLesson = () => {
   return {
