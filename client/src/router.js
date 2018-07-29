@@ -5,6 +5,8 @@ import Signup from "./components/auth/Signup";
 import LessonInfo from "./components/LessonInfo";
 import CreateCourse from "./components/CreateCourse";
 import CreateLesson from "./components/CreateLesson";
+import SignIn from "./components/SignIn";
+import AdminDashboard from "./components/AdminDashboard";
 
 export default (
   <Switch>
@@ -13,5 +15,7 @@ export default (
     <Route component={LessonInfo} path="/course/lessons/:id" />
     <Route component={CreateCourse} path="/create/course" />
     <Route component={CreateLesson} path="/create/lesson" />
+    <Route component={SignIn} path="/signin" />
+    <Route component={AdminDashboard} exact path="/admin/board" />
   </Switch>
 );

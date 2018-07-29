@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import "../styles/createCourse.css";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { postCourse } from "../actions/coursesAction";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class CreateCourse extends Component {
   constructor(props) {
     super(props);
     this.state = {
       courseType: "",
+      courseDevType: "Front End Development",
       courseDescription: "",
       courseColor: ""
     };
   }
   handleChange = event => {
+    // console.log(event.target.value);
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -43,6 +45,18 @@ class CreateCourse extends Component {
                 placeholder="Enter Course Title"
                 onChange={this.handleChange}
               />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleSelectMulti">Select Developer Type</Label>
+              <Input
+                type="select"
+                name="courseDevType"
+                id="courseDevType"
+                onChange={this.handleChange}
+              >
+                <option>Front End Development</option>
+                <option>Back End Development</option>
+              </Input>
             </FormGroup>
             <FormGroup>
               <Label for="exampleText">Course Description</Label>

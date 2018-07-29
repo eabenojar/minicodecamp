@@ -11,6 +11,7 @@
 .courses-container {
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
   justify-content: space-between;
 }
 .home-container {
@@ -33,8 +34,8 @@
 /* Lesson.js css section */
 
 .lesson-container {
-  height: 250px;
-  width: 28%;
+  height: 275px;
+  width: 32%;
   background-color: #fff;
   border-radius: 0px;
   margin-bottom: 50px;
@@ -50,12 +51,12 @@
 }
 .lesson-body {
   padding: 20px 0px 0px 20px;
-  height: 140px;
+  height: 175px;
 }
 .lesson-footer {
   display: flex;
   align-items: center;
-  height: 65px;
+  height: 75px;
   background-color: none;
   padding-left: 20px;
 }

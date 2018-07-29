@@ -7,6 +7,7 @@ module.exports = {
     const newCourse = new Course({
       courseType: req.body.courseType,
       courseDescription: req.body.courseDescription,
+      courseDevType: req.body.courseDevType,
       courseColor: req.body.courseColor
     });
     newCourse

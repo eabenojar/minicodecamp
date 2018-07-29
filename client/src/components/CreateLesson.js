@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/createLesson.css";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { postLesson } from "../actions/coursesAction";
 

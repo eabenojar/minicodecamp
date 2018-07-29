@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 
 class Lesson extends Component {
-  constructor(props) {
-    super(props);
-  }
   viewCourse = lesson => {
     console.log("clicked", lesson);
   };

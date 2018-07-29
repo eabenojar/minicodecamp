@@ -33,6 +33,10 @@ const CourseSchema = new Schema(
       type: String,
       required: true
     },
+    courseDevType: {
+      type: String,
+      required: true
+    },
     courseDescription: {
       type: String,
       required: true

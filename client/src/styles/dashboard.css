@@ -1,0 +1,77 @@
+.dashboard-container {
+  height: 90vh;
+  width: 100vw;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.dashboard-title-section {
+  width: 85vw;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  border-bottom: 1px solid grey;
+}
+.dashboard-title {
+  font-size: 22px;
+  font-weight: 300;
+}
+.dashboard-description {
+  font-size: 16px;
+}
+.dashboard-section {
+  height: calc(90vh - 125px);
+  width: 85vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-flow: row wrap;
+}
+.create-section {
+  margin-top: 50px;
+  height: 250px;
+  width: 32%;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.create-section-title {
+  font-size: 22px;
+  font-weight: 400;
+}
+.create-section-description {
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #e7e7e7;
+  padding: 10px 0 10px 0;
+}
+.create-section-header {
+  height: 25px;
+  width: 100%;
+  background-color: #3c4655;
+}
+.create-section-body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 25px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.dashboard-button {
+  background-color: #43cb68;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid transparent;
+}

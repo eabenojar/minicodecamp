@@ -34,3 +34,10 @@
   left: 0px;
   height: 100%;
 }
+.no-lessons-container {
+  height: 92vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
