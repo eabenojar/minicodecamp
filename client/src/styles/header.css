@@ -37,8 +37,15 @@
   color: #fff;
   margin-right: 15px;
 }
-.header-link:hover {
+
+.navbar-links {
+  color: #000;
   text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+.navbar-links:hover {
+  color: inherit;
 }
 
 /* Responsive Design */

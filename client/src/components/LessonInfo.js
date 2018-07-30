@@ -38,15 +38,18 @@ class LessonInfo extends Component {
   render() {
     const { location } = this.props;
     const { state } = location;
-    console.log("RENDER", this.props);
+    console.log(
+      "RENDER",
+      this.props,
+      this.props.state.courseReducer.courses.length
+    );
     return (
       <div>
-        {this.props.state.courseReducer.lessons.lessons ? (
+        {this.props.state.courseReducer.lessons.lessons &&
+        this.props.location.state.lessons.length > 0 ? (
           <div className="lessoninfo-container">
             <div className="lesson-page-title-section">
-              <h2 className="lesson-page-title">
-                {this.props.state.courseReducer.lessons.courseType} Lessons
-              </h2>
+              <h2 className="lesson-page-title">{this.courseType} Lessons</h2>
             </div>
             <div className="lesson-content language-javascript">
               {this.props.state.courseReducer.lessons.lessons.map(
@@ -108,6 +111,10 @@ class LessonInfo extends Component {
                 }
               )}
             </div>
+          </div>
+        ) : this.props.location.state.lessons.length === 0 ? (
+          <div className="no-lessons-container">
+            <h1>No Lessons Available</h1>
           </div>
         ) : (
           <div className="no-lessons-container">
