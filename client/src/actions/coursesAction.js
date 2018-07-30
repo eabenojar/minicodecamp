@@ -4,7 +4,8 @@ import {
   POST_COURSE,
   POST_LESSON,
   DELETE_COURSE,
-  DELETE_LESSON
+  DELETE_LESSON,
+  GET_ONE_COURSE
 } from "./types";
 
 import axios from "axios";
@@ -52,4 +53,13 @@ export const deleteCourse = () => {
   return {
     type: DELETE_COURSE
   };
+};
+export const getOneCourse = id => dispatch => {
+  console.log("INSIDE GET ONE COURSE ACTION");
+  axios.get(`/course/lessons/${id}`).then(res => {
+    dispatch({
+      type: GET_ONE_COURSE,
+      payload: res.data
+    });
+  });
 };

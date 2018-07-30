@@ -21,6 +21,7 @@ module.exports = {
     console.log("INSIDE FIRST LESSON", Course);
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
+        console.log("FOUND COURSE", course);
         const newLesson = new Lesson({
           courseType: req.body.courseType,
           lessonNumber: req.body.lessonNumber,
@@ -29,7 +30,9 @@ module.exports = {
           lessonCode: req.body.lessonCode
         });
         newLesson.save().then(lesson => {
+          console.log("PUSH LESSONS");
           course.lessons.push(lesson);
+          console.log("LESSONS PUSHED", course);
           course
             .save()
             .then(course => {
@@ -47,7 +50,10 @@ module.exports = {
     const id = req.params.id;
     Course.findById(id)
       .populate("lessons")
-      .then(lesson => res.json(lesson))
+      .then(lesson => {
+        console.log("INSIDE SERVER GET ONE COURSE", lesson);
+        res.json(lesson);
+      })
       .catch(err => {
         console.log(err);
         res.send("ERRR");

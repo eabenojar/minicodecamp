@@ -3,6 +3,8 @@ import Lesson from "./Lesson";
 import "../styles/home.css";
 import { connect } from "react-redux";
 import { getCourses } from "../actions/coursesAction";
+import "prismjs/themes/prism.css";
+import "prismjs/prism.js";
 
 class HomePage extends Component {
   constructor(props) {

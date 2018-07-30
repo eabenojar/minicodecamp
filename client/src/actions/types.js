@@ -7,3 +7,4 @@ export const POST_LESSON = "POST_LESSON";
 export const POST_COURSE = "POST_COURSE";
 export const DELETE_COURSE = "DELETE_COURSE";
 export const DELETE_LESSON = "DELETE_LESSON";
+export const GET_ONE_COURSE = "GET_ONE_COURSE";

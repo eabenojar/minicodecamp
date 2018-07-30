@@ -2,7 +2,8 @@ import {
   GET_COURSES,
   // GET_LESSONS,
   POST_COURSE,
-  POST_LESSON
+  POST_LESSON,
+  GET_ONE_COURSE
   // POST_LESSON,
   // DELETE_COURSE,
   // DELETE_LESSON
@@ -10,6 +11,7 @@ import {
 
 const initialState = {
   courses: [],
+  lessons: [],
   loading: false
 };
 
@@ -30,6 +32,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         courses: [...state.courses, action.payload]
+      };
+    case GET_ONE_COURSE:
+      return {
+        ...state,
+        lessons: action.payload
       };
     default:
       return state;

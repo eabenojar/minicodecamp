@@ -19,7 +19,7 @@ class AdminDashboard extends Component {
               <h1 className="create-section-title">Create Course</h1>
               <p className="create-section-description">
                 Create courses with lessons that describe the topic and provide
-                code examples.
+                code examples to facilitate learning.
               </p>
               <Link to="/create/course">
                 <button className="dashboard-button">Create Course</button>{" "}
@@ -45,7 +45,7 @@ class AdminDashboard extends Component {
               <h1 className="create-section-title">Create Quiz</h1>
               <p className="create-section-description">
                 Create quiz questions to help test your skill level in a
-                specific topic.
+                specific topic for front end or back end.
               </p>
               <Link to="#">
                 <button className="dashboard-button">Create Quiz</button>{" "}

@@ -22,12 +22,12 @@ module.exports = {
     const email = req.body.email;
     const password = req.body.password;
     console.log(process.env.SECRET);
-    //   if (!email || !password) {
-    //     return res
-    //       .status(422)
-    //       .send({ error: "You must provide an email and password" });
-    //   }
-    // See if a user with the given email exists
+    if (!email || !password) {
+      return res
+        .status(422)
+        .send({ error: "You must provide an email and password" });
+    }
+    //See if a user with the given email exists
     User.findOne({ email: email }, (err, existingUser) => {
       if (err) {
         return next(err);
@@ -40,14 +40,13 @@ module.exports = {
         email: email,
         password: password
       });
+      // If a user with email does NOT exist, create and save user record
+      // Respond to request indicating the user was created
 
       newUser
         .save()
         .then(user => res.json({ token: tokenForUser(user) }))
         .catch(err => console.log(err));
     });
-
-    // If a user with email does NOT exist, create and save user record
-    // Respond to request indicating the user was created
   }
 };

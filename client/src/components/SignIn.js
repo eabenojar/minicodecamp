@@ -29,7 +29,7 @@ class SignIn extends Component {
     return (
       <div className="course-container">
         <div className="create-course-title-section">
-          <h1 className="create-course-form-title">Login In to MiniCodeCamp</h1>
+          <h1 className="create-course-form-title">Login to MiniCodeCamp</h1>
         </div>
         <div className="course-form">
           <Form onSubmit={this.submitForm}>
