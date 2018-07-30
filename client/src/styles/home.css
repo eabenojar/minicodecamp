@@ -145,7 +145,11 @@ pre[class*="language-"] {
     margin-bottom: 50px;
   }
   .home-page-description {
-    display: none;
+    font-size: 16px;
+  }
+  .home-intro-section {
+    height: 150px;
+    width: 100%;
   }
 }
 
@@ -168,14 +172,20 @@ pre[class*="language-"] {
     padding: 20px 0px 0px 20px;
     height: 100px;
   }
+  .lesson-footer {
+    height: 75px;
+  }
   .lesson-description {
     display: none;
   }
-  .lesson-footer {
-    display: flex;
-    align-items: center;
-    height: 75px;
-    background-color: none;
-    padding-left: 20px;
+  .home-intro-section {
+    height: 175px;
+    width: 100%;
+  }
+  .home-page-title {
+    font-size: 28px;
+  }
+  .home-page-description {
+    font-size: 14px;
   }
 }

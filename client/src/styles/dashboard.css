@@ -1,9 +1,10 @@
 .dashboard-container {
-  height: 90vh;
+  min-height: 92vh;
+  max-height: auto;
   width: 100vw;
   background-color: #f0f0f0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -11,7 +12,7 @@
   width: 85vw;
   height: 125px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   flex-direction: column;
   border-bottom: 1px solid grey;
@@ -24,13 +25,15 @@
   font-size: 16px;
 }
 .dashboard-section {
-  height: calc(90vh - 125px);
+  /* min-height: calc(90vh - 125px); */
+  height: auto;
   width: 85vw;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-start;
   flex-flow: row wrap;
+  padding: 0 0 25px 0;
 }
 .create-section {
   margin-top: 50px;
@@ -49,8 +52,7 @@
 .create-section-description {
   font-size: 14px;
   font-weight: 300;
-  background-color: #e7e7e7;
-  padding: 15px;
+  padding: 15px 0;
 }
 .create-section-header {
   height: 25px;
@@ -78,4 +80,22 @@
 }
 .dashboard-button:hover {
   opacity: 0.8;
+}
+
+@media only screen and (max-width: 1200px) {
+  .create-section {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .create-section {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .create-section-description {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px 0;
+  }
 }
