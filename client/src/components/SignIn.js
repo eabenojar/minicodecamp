@@ -3,6 +3,7 @@ import "../styles/createCourse.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { postCourse } from "../actions/coursesAction";
+import { loginUser } from "../actions/authAction";
 // import { Link } from "react-router-dom";
 
 class SignIn extends Component {
@@ -13,19 +14,31 @@ class SignIn extends Component {
       password: ""
     };
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.state.auth.isAuthenticated) {
+      console.log("ITS LITTTT");
+      this.props.history.push("/admin/dashboard");
+    }
+
+    // if (nextProps.errors) {
+    //   this.setState({ errors: nextProps.errors });
+    // }
+  }
   handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
       [name]: value
     });
+    console.log("this props signin", this.state);
   };
   submitForm = event => {
     console.log("STATE", this.state);
-    this.props.postCourse(this.state);
+    this.props.loginUser(this.state);
     event.preventDefault();
   };
   render() {
+    console.log(this.props);
     return (
       <div className="course-container">
         <div className="create-course-title-section">
@@ -70,5 +83,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { postCourse }
+  { postCourse, loginUser }
 )(SignIn);

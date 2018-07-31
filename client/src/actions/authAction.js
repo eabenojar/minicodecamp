@@ -1,0 +1,41 @@
+import { AUTH_USER, SET_CURRENT_USER } from "./types";
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
+
+export const signup = ({ email, password }) => {
+  return function(dispatch) {
+    dispatch({
+      type: AUTH_USER,
+      payload: email
+    });
+  };
+};
+
+// Login - Get User Token
+export const loginUser = userData => dispatch => {
+  console.log("INSIDE LOGIN USER", userData);
+  axios
+    .post("/admin/signin", userData)
+    .then(res => {
+      console.log("SUCESSS SIGNED IN");
+      // Save to localstorage
+      const { token } = res.data;
+      // Set token to localstorage
+      localStorage.setItem("jwtToken", token);
+      // Set token to Auth Header
+      setAuthToken(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
+    })
+    .catch(err => console.log(err, "error in action login"));
+};
+
+export const setCurrentUser = decoded => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: decoded
+  };
+};

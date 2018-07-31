@@ -11,7 +11,7 @@ module.exports = function(app) {
   //   res.send({ hi: "There" });
   // });
   app.post("/signup", Authentication.signup);
-  app.post("/signin", requireSignin, Authentication.signin);
+  app.post("/admin/signin", requireSignin, Authentication.signin);
   app.post("/create/course", lessons.createCourse);
   app.post("/create/lesson", lessons.createLesson);
   app.get("/course/lessons/:id", lessons.getOneCourse);

@@ -1,5 +1,8 @@
 export const AUTH_USER = "AUTH_USER";
 export const AUTH_ERROR = "AUTH_ERROR";
+export const SIGN_IN = "SIGN_IN";
+export const LOG_OUT = "LOG_OUT";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export const GET_COURSES = "GET_COURSES";
 export const GET_LESSONS = "GET_LESSONS";

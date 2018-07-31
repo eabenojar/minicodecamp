@@ -5,7 +5,8 @@ import {
   POST_LESSON,
   DELETE_COURSE,
   DELETE_LESSON,
-  GET_ONE_COURSE
+  GET_ONE_COURSE,
+  SIGN_IN
 } from "./types";
 
 import axios from "axios";
@@ -59,6 +60,15 @@ export const getOneCourse = id => dispatch => {
   axios.get(`/course/lessons/${id}`).then(res => {
     dispatch({
       type: GET_ONE_COURSE,
+      payload: res.data
+    });
+  });
+};
+
+export const userLogin = user => dispatch => {
+  axios.post("/login", user).then(res => {
+    dispatch({
+      type: SIGN_IN,
       payload: res.data
     });
   });

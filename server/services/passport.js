@@ -22,6 +22,7 @@ const localLogin = new LocalStrategy(localOptions, function(
     if (!user) {
       return done(null, false);
     }
+    console.log("INSIDE SEVER FOUND", email, password);
     // compare passwords - is 'password' equal to user.password
     user.comparePassword(password, function(err, isMatch) {
       if (err) {
