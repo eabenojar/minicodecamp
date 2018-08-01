@@ -81,6 +81,17 @@
 .dashboard-button:hover {
   opacity: 0.8;
 }
+.dashboard-admin-only {
+  height: 92vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-admin-only h1 {
+  font-weight: 200;
+  color: red;
+}
 
 @media only screen and (max-width: 1200px) {
   .create-section {

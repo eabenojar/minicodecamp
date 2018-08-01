@@ -30,62 +30,70 @@ class CreateLesson extends Component {
   render() {
     return (
       <div className="course-container">
-        <div className="create-lesson-title-section">
-          <h1 className="create-lesson-form-title">Create a lesson</h1>
-        </div>
-        <div className="lesson-form">
-          <Form onSubmit={this.submitForm}>
-            <FormGroup>
-              <Label for="exampleEmail">Course Type</Label>
-              <Input
-                type="text"
-                name="courseType"
-                id="courseType"
-                placeholder="Enter Course Type"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleNumber">Lesson Number</Label>
-              <Input
-                type="number"
-                name="lessonNumber"
-                id="lessonNumber"
-                placeholder="Enter lesson number"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleText">Lesson Title</Label>
-              <Input
-                type="text"
-                name="lessonTitle"
-                id="lessonTitle"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleText">Lesson Description</Label>
-              <Input
-                type="textarea"
-                maxlength="800"
-                name="lessonDescription"
-                id="lessonDescription"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleText">Lesson Code</Label>
-              <Input
-                type="textarea"
-                name="lessonCode"
-                id="lessonCode"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <Button color="success">Submit</Button>
-          </Form>
-        </div>
+        {this.props.state.auth.isAuthenticated ? (
+          <div>
+            <div className="create-lesson-title-section">
+              <h1 className="create-lesson-form-title">Create a lesson</h1>
+            </div>
+            <div className="lesson-form">
+              <Form onSubmit={this.submitForm}>
+                <FormGroup>
+                  <Label for="exampleEmail">Course Type</Label>
+                  <Input
+                    type="text"
+                    name="courseType"
+                    id="courseType"
+                    placeholder="Enter Course Type"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleNumber">Lesson Number</Label>
+                  <Input
+                    type="number"
+                    name="lessonNumber"
+                    id="lessonNumber"
+                    placeholder="Enter lesson number"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleText">Lesson Title</Label>
+                  <Input
+                    type="text"
+                    name="lessonTitle"
+                    id="lessonTitle"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleText">Lesson Description</Label>
+                  <Input
+                    type="textarea"
+                    maxLength="800"
+                    name="lessonDescription"
+                    id="lessonDescription"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleText">Lesson Code</Label>
+                  <Input
+                    type="textarea"
+                    name="lessonCode"
+                    id="lessonCode"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <Button color="success">Submit</Button>
+              </Form>
+            </div>
+          </div>
+        ) : (
+          <div className="dashboard-admin-only">
+            <h1>Admin Access Only</h1>
+          </div>
+        )}
       </div>
     );
   }

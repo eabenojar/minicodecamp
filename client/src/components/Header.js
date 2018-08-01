@@ -9,6 +9,8 @@ import {
   NavItem,
   NavLink
 } from "reactstrap";
+import { connect } from "react-redux";
+import { logoutCurrentUser } from "../actions/authAction";
 
 class Header extends Component {
   state = {
@@ -18,6 +20,11 @@ class Header extends Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
+  };
+  logout = () => {
+    console.log("LOGOUT FAM");
+    this.props.logoutCurrentUser();
+    this.props.history.push("/course");
   };
   render() {
     return (
@@ -32,14 +39,18 @@ class Header extends Component {
                     Courses
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink className="navbar-links" href="/course">
                     Quizes
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
               </Nav>
             </Collapse>
-            <NavbarBrand href="/course">Mini Code Camp</NavbarBrand>
+            {this.props.state.auth.isAuthenticated ? (
+              <NavbarBrand onClick={this.logout}>Logout</NavbarBrand>
+            ) : (
+              <NavbarBrand href="/course">Mini Code Camp</NavbarBrand>
+            )}
           </Navbar>
         </div>
 
@@ -65,5 +76,13 @@ class Header extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    state
+  };
+};
 
-export default Header;
+export default connect(
+  mapStateToProps,
+  { logoutCurrentUser }
+)(Header);
