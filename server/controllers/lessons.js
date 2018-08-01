@@ -70,7 +70,7 @@ module.exports = {
       });
   },
   deleteLesson: (req, res) => {
-    Course.findOne({ courseType: req.body.courseType })
+    Course.findById(req.params.id)
       .then(course => {
         Lesson.findByIdAndRemove(req.params.id).then(lesson => {
           console.log("INSIDE LESSON", course.lessons);
@@ -96,9 +96,10 @@ module.exports = {
   },
   deleteCourse: (req, res) => {
     // req.body.courseType = req.query.coursetype;
-    Course.findOneAndRemove({ courseType: req.body.courseType })
+    console.log("INSIDE SERVER DELETE COURSE", req.params.id);
+    Course.findByIdAndRemove(req.params.id)
       .then(course => {
-        Lesson.deleteMany({ courseType: req.body.courseType })
+        Lesson.deleteMany({ courseType: course.courseType })
           .then(lesson => {
             res.json({ lesson: lesson, course: course });
           })

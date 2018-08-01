@@ -68,7 +68,8 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.dashboard-button {
+.dashboard-button,
+.dashboard-button-manage {
   background-color: #43cb68;
   border-radius: 5px;
   font-size: 14px;
@@ -78,7 +79,11 @@
   border: 1px solid transparent;
   margin: 10px 0 0 0;
 }
-.dashboard-button:hover {
+.dashboard-button-manage {
+  background-color: #ff7b7b;
+}
+.dashboard-button:hover,
+.dashboard-button-manage:hover {
   opacity: 0.8;
 }
 .dashboard-admin-only {

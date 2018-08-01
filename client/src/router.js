@@ -7,6 +7,8 @@ import CreateCourse from "./components/CreateCourse";
 import CreateLesson from "./components/CreateLesson";
 import SignIn from "./components/SignIn";
 import AdminDashboard from "./components/AdminDashboard";
+import ManageCourses from "./components/ManageCourses";
+import ManageLessons from "./components/ManageLessons";
 
 export default (
   <Switch>
@@ -17,5 +19,15 @@ export default (
     <Route component={CreateLesson} path="/create/lesson" />
     <Route component={SignIn} path="/admin/signin" />
     <Route component={AdminDashboard} exact path="/admin/dashboard" />
+    <Route
+      component={ManageCourses}
+      exact
+      path="/admin/dashboard/manage/courses"
+    />
+    <Route
+      component={ManageLessons}
+      exact
+      path="/admin/dashboard/manage/lessons"
+    />
   </Switch>
 );

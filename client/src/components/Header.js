@@ -47,7 +47,10 @@ class Header extends Component {
               </Nav>
             </Collapse>
             {this.props.state.auth.isAuthenticated ? (
-              <NavbarBrand onClick={this.logout}>Logout</NavbarBrand>
+              <Nav>
+                <NavbarBrand href="/admin/dashboard">Dashboard</NavbarBrand>
+                <NavbarBrand onClick={this.logout}>Logout</NavbarBrand>
+              </Nav>
             ) : (
               <NavbarBrand href="/course">Mini Code Camp</NavbarBrand>
             )}

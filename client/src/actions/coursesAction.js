@@ -45,15 +45,24 @@ export const postLesson = lesson => dispatch => {
     });
   });
 };
-export const deleteLesson = () => {
-  return {
-    type: DELETE_LESSON
-  };
+export const deleteLesson = id => dispatch => {
+  axios.delete(`/admin/dashboard/manage/lesson/${id}`).then(res => {
+    console.log("RESSS", res);
+    dispatch({
+      type: DELETE_LESSON,
+      payload: id
+    });
+  });
 };
-export const deleteCourse = () => {
-  return {
-    type: DELETE_COURSE
-  };
+export const deleteCourse = id => dispatch => {
+  console.log("THIS DELETE COURSE ", id);
+  axios.delete(`/admin/dashboard/manage/courses/${id}`).then(res => {
+    console.log("RESSS", res);
+    dispatch({
+      type: DELETE_COURSE,
+      payload: id
+    });
+  });
 };
 export const getOneCourse = id => dispatch => {
   console.log("INSIDE GET ONE COURSE ACTION");

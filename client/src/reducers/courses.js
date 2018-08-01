@@ -3,10 +3,10 @@ import {
   // GET_LESSONS,
   POST_COURSE,
   POST_LESSON,
-  GET_ONE_COURSE
+  GET_ONE_COURSE,
   // POST_LESSON,
-  // DELETE_COURSE,
-  // DELETE_LESSON
+  DELETE_COURSE,
+  DELETE_LESSON
 } from "../actions/types";
 
 const initialState = {
@@ -37,6 +37,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         lessons: action.payload
+      };
+    case DELETE_COURSE:
+      return {
+        ...state,
+        courses: state.courses.filter(course => course._id !== action.payload)
+      };
+    case DELETE_LESSON:
+      return {
+        ...state,
+        courses: state.courses.filter(course => course._id !== action.payload)
       };
     default:
       return state;

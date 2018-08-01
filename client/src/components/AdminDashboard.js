@@ -46,16 +46,21 @@ class AdminDashboard extends Component {
                   </Link>
                 </div>
               </div>
+
               <div className="create-section">
                 <div className="create-section-header" />
                 <div className="create-section-body">
-                  <h1 className="create-section-title">Create Quiz</h1>
+                  <h1 className="create-section-title">
+                    Manage Courses / Lessons
+                  </h1>
                   <p className="create-section-description">
-                    Create quiz questions to help test your skill level in a
-                    specific topic for front end or back end.
+                    Update or delete courses and lessons from the main page or
+                    lessons page.
                   </p>
-                  <Link to="#">
-                    <button className="dashboard-button">Create Quiz</button>{" "}
+                  <Link to="/admin/dashboard/manage/courses">
+                    <button className="dashboard-button-manage">
+                      Manage Courses
+                    </button>{" "}
                   </Link>
                 </div>
               </div>

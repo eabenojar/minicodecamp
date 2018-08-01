@@ -1,0 +1,69 @@
+.manage-courses-container {
+  min-height: 92vh;
+  height: auto;
+  width: 100vw;
+  background-color: #f0f0f0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.manage-section {
+  display: flex;
+  flex-flow: row wrap;
+  width: 85vw;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+.manage-lesson-container {
+  height: 175px;
+  width: 32%;
+  background-color: #fff;
+  border-radius: 0px;
+  margin-bottom: 25px;
+}
+.manage-lesson-body {
+  padding: 20px 0px 0px 20px;
+  height: 75px;
+}
+.manage-intro-section {
+  height: 100px;
+  width: 85vw;
+  background-color: none;
+  border-bottom: #b4b4b4 solid 1px;
+  margin: 25px 25px;
+}
+.manage-page-description,
+.manage-page-title {
+  margin-bottom: 10px;
+}
+
+.manage-lesson-footer {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background-color: none;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+.manage-button-edit,
+.manage-button-delete,
+.manage-button-lessons {
+  height: 30px;
+  width: 32%;
+  font-weight: 200;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.manage-button-delete {
+  background-color: #ff7f7f;
+}
+.manage-button-edit {
+  background-color: #5aca88;
+}
+.manage-button-lessons {
+  background-color: #637075;
+}
