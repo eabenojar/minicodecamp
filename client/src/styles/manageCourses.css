@@ -12,16 +12,16 @@
   display: flex;
   flex-flow: row wrap;
   width: 85vw;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   height: auto;
 }
 .manage-lesson-container {
   height: 175px;
-  width: 32%;
+  width: 31%;
   background-color: #fff;
   border-radius: 0px;
-  margin-bottom: 25px;
+  margin: 1% 1% 25px 1%;
 }
 .manage-lesson-body {
   padding: 20px 0px 0px 20px;

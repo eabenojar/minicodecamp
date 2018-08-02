@@ -6,7 +6,8 @@ import {
   GET_ONE_COURSE,
   // POST_LESSON,
   DELETE_COURSE,
-  DELETE_LESSON
+  DELETE_LESSON,
+  MANAGE_COURSES
 } from "../actions/types";
 
 const initialState = {
@@ -38,6 +39,11 @@ export default function(state = initialState, action) {
         ...state,
         lessons: action.payload
       };
+    case MANAGE_COURSES:
+      return {
+        ...state,
+        lessons: action.payload
+      };
     case DELETE_COURSE:
       return {
         ...state,
@@ -46,7 +52,20 @@ export default function(state = initialState, action) {
     case DELETE_LESSON:
       return {
         ...state,
-        courses: state.courses.filter(course => course._id !== action.payload)
+        courses: state.courses.map(course => {
+          console.log(course, "TESTING");
+          if (course.courseType === action.payload.courseType) {
+            console.log("DOES THIS WORK", action.id);
+
+            const result = course.lessons.filter(
+              lessons => lessons._id !== action.id
+            );
+            course.lessons = result;
+            console.log("WORKED", course.lessons);
+          }
+          return course;
+        }),
+        lessons: state.lessons.filter(lesson => lesson._id !== action.id)
       };
     default:
       return state;

@@ -15,7 +15,8 @@ module.exports = function(app) {
   app.post("/create/course", lessons.createCourse);
   app.post("/create/lesson", lessons.createLesson);
   app.get("/course/lessons/:id", lessons.getOneCourse);
+  app.get("/admin/dashboard/manage/courses/:id", lessons.manageOneCourse);
   app.get("/course", lessons.getAllCourses);
-  app.delete("/admin/dashboard/manage/lesson/${id}", lessons.deleteLesson);
+  app.post("/admin/dashboard/manage/lessons", lessons.deleteLesson);
   app.delete("/admin/dashboard/manage/courses/:id", lessons.deleteCourse);
 };

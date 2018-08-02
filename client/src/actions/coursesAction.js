@@ -6,7 +6,8 @@ import {
   DELETE_COURSE,
   DELETE_LESSON,
   GET_ONE_COURSE,
-  SIGN_IN
+  SIGN_IN,
+  MANAGE_COURSES
 } from "./types";
 
 import axios from "axios";
@@ -45,12 +46,14 @@ export const postLesson = lesson => dispatch => {
     });
   });
 };
-export const deleteLesson = id => dispatch => {
-  axios.delete(`/admin/dashboard/manage/lesson/${id}`).then(res => {
+export const deleteLesson = lesson => dispatch => {
+  console.log("DELETE LESSON ACTION", lesson);
+  axios.post("/admin/dashboard/manage/lessons", lesson).then(res => {
     console.log("RESSS", res);
     dispatch({
       type: DELETE_LESSON,
-      payload: id
+      payload: res.data,
+      id: lesson._id
     });
   });
 };
@@ -70,6 +73,17 @@ export const getOneCourse = id => dispatch => {
     dispatch({
       type: GET_ONE_COURSE,
       payload: res.data
+    });
+  });
+};
+
+export const manageOneCourse = id => dispatch => {
+  console.log("INSIDE GET ONE COURSE ACTION");
+  axios.get(`/admin/dashboard/manage/courses/${id}`).then(res => {
+    console.log("MANAGE ACTION", res.data);
+    dispatch({
+      type: MANAGE_COURSES,
+      payload: res.data.lessons
     });
   });
 };

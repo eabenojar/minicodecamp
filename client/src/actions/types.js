@@ -4,6 +4,7 @@ export const SIGN_IN = "SIGN_IN";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
+export const MANAGE_COURSES = "MANAGE_COURSES";
 export const GET_COURSES = "GET_COURSES";
 export const GET_LESSONS = "GET_LESSONS";
 export const POST_LESSON = "POST_LESSON";

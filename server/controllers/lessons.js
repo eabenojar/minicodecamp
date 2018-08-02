@@ -18,7 +18,7 @@ module.exports = {
       .catch(err => console.log(err));
   },
   createLesson: (req, res) => {
-    console.log("INSIDE FIRST LESSON", Course);
+    console.log("INSIDE FIRST LESSON", req.body);
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
         console.log("FOUND COURSE", course);
@@ -29,21 +29,25 @@ module.exports = {
           lessonDescription: req.body.lessonDescription,
           lessonCode: req.body.lessonCode
         });
-        newLesson.save().then(lesson => {
-          console.log("PUSH LESSONS");
-          course.lessons.push(lesson);
-          console.log("LESSONS PUSHED", course);
-          course
-            .save()
-            .then(course => {
-              res.json(course);
-            })
-            .catch(err => res.send("ERROR INSIDE"));
-        });
+        if (course) {
+          newLesson.save().then(lesson => {
+            console.log("PUSH LESSONS");
+            course.lessons.push(lesson);
+            console.log("LESSONS PUSHED", course);
+            course
+              .save()
+              .then(course => {
+                res.json(course);
+              })
+              .catch(err => res.send("ERROR INSIDE"));
+          });
+        } else {
+          res.status(404);
+          console.log("NOT COURSE FOUND");
+        }
       })
       .catch(err => {
-        console.log(err);
-        res.send("TYPE NOT FOUND");
+        console.log(err, "COURSE TYPE NOT FOUND");
       });
   },
   getOneCourse: (req, res) => {
@@ -52,6 +56,19 @@ module.exports = {
       .populate("lessons")
       .then(lesson => {
         console.log("INSIDE SERVER GET ONE COURSE", lesson);
+        res.json(lesson);
+      })
+      .catch(err => {
+        console.log(err);
+        res.send("ERRR");
+      });
+  },
+  manageOneCourse: (req, res) => {
+    const id = req.params.id;
+    Course.findById(id)
+      .populate("lessons")
+      .then(lesson => {
+        console.log("INSIDE SERVER MANAGE ONE COURSE", lesson);
         res.json(lesson);
       })
       .catch(err => {
@@ -70,24 +87,31 @@ module.exports = {
       });
   },
   deleteLesson: (req, res) => {
-    Course.findById(req.params.id)
+    console.log("INSIDE DELETE LESSONS SERVER SIDE", req.body);
+    Course.findOne({ courseType: req.body.courseType })
       .then(course => {
-        Lesson.findByIdAndRemove(req.params.id).then(lesson => {
-          console.log("INSIDE LESSON", course.lessons);
-          const newCourseLessons = course.lessons.filter(item => {
-            console.log("EACAEEC", typeof item, typeof lesson._id.toString());
-            if (item.toString() !== lesson._id.toString()) {
-              return item;
-            }
+        console.log("INSIDE COURSE INSIDE DELETE LESSON");
+        if (course) {
+          Lesson.findOneAndRemove(req.body._id).then(lesson => {
+            console.log("INSIDE LESSON", course.lessons);
+            const newCourseLessons = course.lessons.filter(item => {
+              console.log("EACAEEC", typeof item, typeof lesson._id.toString());
+              if (item.toString() !== lesson._id.toString()) {
+                return item;
+              }
+            });
+            console.log("NEW LESSONS", newCourseLessons);
+            course.lessons = newCourseLessons;
+            console.log("AFTER COURSE", course.lessons);
+            course
+              .save()
+              .then(course => res.json(course))
+              .catch(err => console.log(err));
           });
-          console.log("NEW LESSONS", newCourseLessons);
-          course.lessons = newCourseLessons;
-          console.log("AFTER COURSE", course.lessons);
-          course
-            .save()
-            .then(course => res.json(course))
-            .catch(err => console.log(err));
-        });
+        } else {
+          res.status(404);
+          console.log("COURSE NOT FOUND");
+        }
       })
       .catch(err => {
         console.log(err);
