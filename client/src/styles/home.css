@@ -12,7 +12,6 @@
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  justify-content: space-between;
 }
 .home-container {
   margin-top: 50px;
@@ -25,6 +24,7 @@
   background-color: none;
   border-bottom: #b4b4b4 solid 1px;
   margin-bottom: 25px;
+  padding: 0 1% 0 1%;
 }
 .home-page-description,
 .home-page-title {
@@ -38,7 +38,7 @@
   width: 32%;
   background-color: #fff;
   border-radius: 0px;
-  margin-bottom: 50px;
+  margin: 0 1% 50px 1%;
 }
 .lesson-header {
   height: 25px;
@@ -106,10 +106,10 @@ pre[class*="language-"] {
 }
 .lesson-container {
   height: 275px;
-  width: 32%;
+  width: 31%;
   background-color: #fff;
   border-radius: 0px;
-  margin-bottom: 50px;
+  margin: 0 1% 50px 1%;
   -webkit-animation-name: slideFromBottom; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
   animation-name: slideFromBottom;

@@ -3,6 +3,7 @@ import "../styles/createCourse.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { postCourse } from "../actions/coursesAction";
+import { Link } from "react-router-dom";
 
 class CreateCourse extends Component {
   constructor(props) {
@@ -11,8 +12,21 @@ class CreateCourse extends Component {
       courseType: "",
       courseDevType: "Front End Development",
       courseDescription: "",
-      courseColor: ""
+      courseColor: "",
+      created: false
     };
+  }
+  componentDidUpdate() {
+    console.log("DID UPDATE", this.props);
+    if (
+      this.props.state.courseReducer.courses.length === 1 &&
+      this.state.created === false
+    ) {
+      console.log("CREATE COURSE UPDATE");
+      this.setState({
+        created: true
+      });
+    }
   }
   handleChange = event => {
     // console.log(event.target.value);
@@ -25,13 +39,22 @@ class CreateCourse extends Component {
   submitForm = event => {
     console.log("STATE", this.state);
     this.props.postCourse(this.state);
+
     event.preventDefault();
+  };
+  resetPage = () => {
+    console.log("RESET");
+    this.setState({
+      created: false
+    });
+    console.log("RESET STATE", this.state.created);
   };
   render() {
     console.log(this.props, "RENDER CREATE COURSE");
     return (
       <div className="course-container">
-        {this.props.state.auth.isAuthenticated ? (
+        {this.props.state.auth.isAuthenticated &&
+        this.state.created === false ? (
           <div>
             <div className="create-course-title-section">
               <h1 className="create-course-form-title">Create a course</h1>
@@ -83,6 +106,14 @@ class CreateCourse extends Component {
                 <Button color="success">Submit</Button>
               </Form>
             </div>
+          </div>
+        ) : this.props.state.auth.isAuthenticated &&
+        this.state.created === true ? (
+          <div className="dashboard-admin-only">
+            <h1>Course Created</h1>
+            <Button onClick={this.resetPage} color="danger">
+              Create Another Course
+            </Button>
           </div>
         ) : (
           <div className="dashboard-admin-only">
