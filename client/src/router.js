@@ -9,6 +9,8 @@ import SignIn from "./components/SignIn";
 import AdminDashboard from "./components/AdminDashboard";
 import ManageCourses from "./components/ManageCourses";
 import ManageLessons from "./components/ManageLessons";
+import EditCourse from "./components/EditCourse";
+import EditLesson from "./components/EditLesson";
 
 export default (
   <Switch>
@@ -28,6 +30,16 @@ export default (
       component={ManageLessons}
       exact
       path="/admin/dashboard/manage/lessons"
+    />
+    <Route
+      component={EditCourse}
+      exact
+      path="/admin/dashboard/manage/courses/update/:id"
+    />
+    <Route
+      component={EditLesson}
+      exact
+      path="/admin/dashboard/manage/lessons/update/:id"
     />
   </Switch>
 );

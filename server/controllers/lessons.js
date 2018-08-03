@@ -137,11 +137,75 @@ module.exports = {
         res.send('ERROR CAN"T FIND COURSE');
       });
   },
+  // updateCourse: (req, res) => {
+  //   const id = req.params.id;
+  //   console.log("INSIDE UPDATE COURSE", id, req.body);
+  //   Course.findById(id)
+  //     .populate("lessons")
+  //     .then(course => {
+  //       let updatedCourse = course.lessons.map(lesson => {
+  //         // return { ...lesson, courseType: req.body.courseType };
+
+  //         lesson.courseType = req.body.courseType;
+  //         return lesson;
+  //       });
+  //       (course.courseType = req.body.courseType),
+  //         (course.courseDescription = req.body.courseDescription),
+  //         (course.courseDevType = req.body.courseDevType),
+  //         (course.courseColor = req.body.courseColor);
+  //       course.lessons = updatedCourse;
+  //       res.json(course);
+  //       course
+  //         .save()
+  //         .then(updatedCourse => {
+  //           updatedCourse.lessons.map(lesson => {
+  //             Lesson.findOneAndUpdate(
+  //               { courseType: course.courseType },
+  //               { courseType: req.body.courseType }
+  //             )
+  //               .then(lessons => {
+  //                 res.json(lessons);
+  //               })
+  //               .catch(err => res.json(err));
+  //           });
+  //           console.log("FINAL UPDATED", updatedCourse);
+  //           res.json(updatedCourse);
+  //         })
+  //         .catch(err => res.json(err));
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.send("ERROR CAN NOT FUND COURSE");
+  //     });
+  // },
   updateCourse: (req, res) => {
     const id = req.params.id;
-    Course.findByIdAndUpdate(id, {
-      courseType: req.body.courseType,
-      courseDescription: req.body.courseDescription
-    }).then(course => res.json(course));
+    console.log("INSIDE UPDATE COURSE", id, req.body);
+    Course.findByIdAndUpdate(id, req.body)
+      .populate("lessons")
+      .then(course => {
+        course.lessons.map(lesson => {
+          Lesson.findOneAndUpdate(
+            { courseType: lesson.courseType },
+            { courseType: req.body.courseType }
+          )
+            .then(lessons => {
+              res.json(lessons);
+            })
+            .catch(err => res.json(err));
+        });
+
+        res.json(course);
+      })
+      .catch(err => {
+        console.log(err);
+        res.send("ERROR CAN NOT FUND COURSE");
+      });
+  },
+  updateLesson: (req, res) => {
+    const id = req.params.id;
+    Lesson.findByIdAndUpdate(id, req.body, { new: true })
+      .then(lesson => res.json(lesson))
+      .catch(err => res.json(err));
   }
 };

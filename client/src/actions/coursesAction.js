@@ -7,7 +7,9 @@ import {
   DELETE_LESSON,
   GET_ONE_COURSE,
   SIGN_IN,
-  MANAGE_COURSES
+  MANAGE_COURSES,
+  UPDATE_COURSE,
+  UPDATE_LESSON
 } from "./types";
 
 import axios from "axios";
@@ -86,6 +88,32 @@ export const manageOneCourse = id => dispatch => {
       payload: res.data.lessons
     });
   });
+};
+
+export const updateCourse = (id, course) => dispatch => {
+  console.log("INSIDE UPDATE COURSE", id, course);
+  axios
+    .put(`/admin/dashboard/manage/courses/update/${id}`, course)
+    .then(res => {
+      dispatch({
+        type: UPDATE_COURSE,
+        payload: res.data
+      });
+    });
+};
+
+export const updateLesson = (id, lesson) => dispatch => {
+  console.log("INSIDE UPDATE LESSONS ACTION", id, lesson);
+  axios
+    .put(`/admin/dashboard/manage/lessons/update/${id}`, lesson)
+    .then(res => {
+      console.log("RES", res);
+      dispatch({
+        type: UPDATE_LESSON,
+        payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
 };
 
 export const userLogin = user => dispatch => {

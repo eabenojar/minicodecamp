@@ -42,6 +42,10 @@ class ManageLessons extends Component {
   };
   editCourse = lesson => {
     console.log("EDIT", lesson);
+    this.props.history.push({
+      pathname: `/admin/dashboard/manage/lessons/update/${lesson._id}`,
+      state: lesson
+    });
   };
   viewLessons = lesson => {
     console.log("LESSONS", lesson);

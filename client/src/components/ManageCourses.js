@@ -25,6 +25,13 @@ class ManageCourses extends Component {
   };
   editCourse = lesson => {
     console.log("EDIT", lesson);
+    this.props.history.push({
+      pathname: `/admin/dashboard/manage/courses/update/${lesson._id}`,
+      state: {
+        course: lesson,
+        id: lesson._id
+      }
+    });
   };
   viewLessons = lesson => {
     console.log("LESSONS", lesson);
@@ -36,7 +43,8 @@ class ManageCourses extends Component {
       }
     });
   };
-  toggle = () => {
+  toggle = lesson => {
+    console.log(lesson);
     this.setState({
       modal: !this.state.modal
     });
@@ -76,7 +84,7 @@ class ManageCourses extends Component {
                   </button>
                   <button
                     className="manage-button-delete"
-                    onClick={this.toggle}
+                    onClick={this.toggle.bind(this, lesson)}
                   >
                     Delete
                   </button>

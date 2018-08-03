@@ -4,10 +4,11 @@ import {
   POST_COURSE,
   POST_LESSON,
   GET_ONE_COURSE,
-  // POST_LESSON,
   DELETE_COURSE,
   DELETE_LESSON,
-  MANAGE_COURSES
+  MANAGE_COURSES,
+  UPDATE_COURSE,
+  UPDATE_LESSON
 } from "../actions/types";
 
 const initialState = {
@@ -66,6 +67,21 @@ export default function(state = initialState, action) {
           return course;
         }),
         lessons: state.lessons.filter(lesson => lesson._id !== action.id)
+      };
+    case UPDATE_COURSE:
+      return {
+        ...state,
+        courses: [...state.courses, action.payload]
+      };
+    case UPDATE_LESSON:
+      return {
+        ...state,
+        lessons: state.lessons.map(lesson => {
+          if (lesson._id === action.payload._id) {
+            return (lesson = action.payload);
+          }
+          return lesson;
+        })
       };
     default:
       return state;

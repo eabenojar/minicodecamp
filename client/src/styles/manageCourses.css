@@ -67,3 +67,38 @@
 .manage-button-lessons {
   background-color: #637075;
 }
+
+/* Responsive Design */
+
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 992px) {
+  .manage-lesson-container {
+    width: 48%;
+    margin: 1% 1% 25px 1%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .manage-lesson-container {
+    width: 98%;
+    margin: 1% 1% 25px 1%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .manage-intro-section {
+    height: 150px;
+    width: 85vw;
+    background-color: none;
+    border-bottom: #b4b4b4 solid 1px;
+    margin: 25px 25px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .manage-intro-section {
+    height: auto;
+    width: 85vw;
+    background-color: none;
+    border-bottom: #b4b4b4 solid 1px;
+    margin: 25px 25px;
+  }
+}
