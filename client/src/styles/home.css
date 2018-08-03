@@ -24,7 +24,6 @@
   background-color: none;
   border-bottom: #b4b4b4 solid 1px;
   margin-bottom: 25px;
-  padding: 0 1% 0 1%;
 }
 .home-page-description,
 .home-page-title {
@@ -38,8 +37,8 @@
   width: 32%;
   background-color: #fff;
   border-radius: 0px;
-  margin: 0 1% 50px 1%;
 }
+
 .lesson-header {
   height: 25px;
   width: 100%;
@@ -106,14 +105,20 @@ pre[class*="language-"] {
 }
 .lesson-container {
   height: 275px;
-  width: 31%;
+  width: 32%;
   background-color: #fff;
   border-radius: 0px;
-  margin: 0 1% 50px 1%;
   -webkit-animation-name: slideFromBottom; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
   animation-name: slideFromBottom;
   animation-duration: 1s;
+  margin: 0 1% 50px 0;
+}
+.lesson-container:nth-child(3n) {
+  margin: 0 0 50px 1%;
+}
+.lesson-container:nth-child(3n + 2) {
+  margin: 0 1% 50px 1%;
 }
 
 /* Responsive Design */
@@ -124,7 +129,11 @@ pre[class*="language-"] {
     width: 48%;
     background-color: #fff;
     border-radius: 0px;
-    margin-bottom: 50px;
+    margin: 0 2% 50px 0%;
+  }
+
+  .lesson-container:nth-child(2n) {
+    margin: 0 0% 50px 2%;
   }
 }
 @media only screen and (max-width: 992px) {

@@ -9,6 +9,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser } from "./actions/authAction";
 import store from "./store";
+import Footer from "./components/Footer";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -26,6 +27,7 @@ class App extends Component {
       <div>
         <Header />
         {router}
+        <Footer />
       </div>
     );
   }

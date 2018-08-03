@@ -1,0 +1,19 @@
+.footer-container {
+  background-color: #f0f0f0;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+.footer-section {
+  width: 85%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-title {
+  font-weight: 100;
+  font-size: 14px;
+}

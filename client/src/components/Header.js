@@ -30,7 +30,7 @@ class Header extends Component {
     return (
       <div className="header-container">
         <div className="header-sub-container">
-          <Navbar color="light" light expand="md">
+          <Navbar expand="md">
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="d-flex align-items-start" navbar>
