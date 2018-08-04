@@ -9,7 +9,8 @@ import {
   SIGN_IN,
   MANAGE_COURSES,
   UPDATE_COURSE,
-  UPDATE_LESSON
+  UPDATE_LESSON,
+  GET_ERRORS
 } from "./types";
 
 import axios from "axios";
@@ -32,21 +33,39 @@ export const getLessons = () => {
 };
 
 export const postCourse = course => dispatch => {
-  axios.post("/create/course", course).then(res => {
-    console.log("INSIDE POST COURSE", course);
-    dispatch({
-      type: POST_COURSE,
-      payload: res.data
+  axios
+    .post("/create/course", course)
+    .then(res => {
+      console.log("INSIDE POST COURSE", res);
+      dispatch({
+        type: POST_COURSE,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log("INSIDE POST COURSE ERRORS", err);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
     });
-  });
 };
 export const postLesson = lesson => dispatch => {
-  axios.post("/create/lesson", lesson).then(res => {
-    dispatch({
-      type: POST_LESSON,
-      payload: res.data
+  axios
+    .post("/create/lesson", lesson)
+    .then(res => {
+      dispatch({
+        type: POST_LESSON,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log("INSIDE POST LESSON ERRORS", err);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
     });
-  });
 };
 export const deleteLesson = lesson => dispatch => {
   console.log("DELETE LESSON ACTION", lesson);

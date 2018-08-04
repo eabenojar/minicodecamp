@@ -30,14 +30,20 @@ class Header extends Component {
     return (
       <div className="header-container">
         <div className="header-sub-container">
-          <Navbar expand="md">
+          <Navbar expand="md" dark>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="d-flex align-items-start" navbar>
+              <Nav className="d-flex align-items-start" color="dark">
                 <NavItem>
-                  <NavLink className="navbar-links" href="/course">
+                  <NavbarBrand
+                    className="navbar-links"
+                    style={{
+                      padding: 0
+                    }}
+                    href="/course"
+                  >
                     Courses
-                  </NavLink>
+                  </NavbarBrand>
                 </NavItem>
                 {/* <NavItem>
                   <NavLink className="navbar-links" href="/course">
@@ -48,8 +54,16 @@ class Header extends Component {
             </Collapse>
             {this.props.state.auth.isAuthenticated ? (
               <Nav>
-                <NavbarBrand href="/admin/dashboard">Dashboard</NavbarBrand>
-                <NavbarBrand onClick={this.logout}>Logout</NavbarBrand>
+                <NavbarBrand className="navbar-links" href="/admin/dashboard">
+                  Dashboard
+                </NavbarBrand>
+                <NavbarBrand
+                  className="navbar-links"
+                  onClick={this.logout}
+                  style={{ color: "#FFF" }}
+                >
+                  Logout
+                </NavbarBrand>
               </Nav>
             ) : (
               <NavbarBrand href="/course">Mini Code Camp</NavbarBrand>

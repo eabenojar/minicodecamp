@@ -43,6 +43,7 @@ const CourseSchema = new Schema(
     },
     courseColor: {
       type: String
+      // default: "#58D68D"
     },
     lessons: [{ type: mongoose.Schema.Types.ObjectId, ref: "lesson" }]
   },

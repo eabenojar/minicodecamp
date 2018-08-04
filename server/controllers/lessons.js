@@ -1,24 +1,53 @@
 const Course = require("../models/Course").Course;
 const Lesson = require("../models/Course").Lesson;
+// Load Validation
+const validateCourse = require("../validation/course");
+const validateLesson = require("../validation/lesson");
 
 module.exports = {
   createCourse: (req, res) => {
     console.log(req.body, "INSIDE CREATE COURSE");
-    const newCourse = new Course({
-      courseType: req.body.courseType,
-      courseDescription: req.body.courseDescription,
-      courseDevType: req.body.courseDevType,
-      courseColor: req.body.courseColor
-    });
-    newCourse
-      .save()
-      .then(result => {
-        res.json(result);
+    const { errors, isValid } = validateCourse(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      console.log("ERRORS", errors);
+      return res.status(400).json(errors);
+    }
+    Course.findOne({ courseType: req.body.courseType })
+      .then(course => {
+        if (course) {
+          console.log("COURSE IS FOUND");
+          res.status(400).json({ courseType: "Course already exists" });
+        } else {
+          console.log("COURSE NOT FOUND AND NOW CAN MAKE NEW ONE");
+          const newCourse = new Course({
+            courseType: req.body.courseType,
+            courseDescription: req.body.courseDescription,
+            courseDevType: req.body.courseDevType,
+            courseColor: req.body.courseColor
+          });
+          newCourse
+            .save()
+            .then(result => {
+              res.json(result);
+            })
+            .catch(err => console.log(err));
+        }
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log("ERRRR", err));
   },
   createLesson: (req, res) => {
     console.log("INSIDE FIRST LESSON", req.body);
+    const { errors, isValid } = validateLesson(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      console.log("ERRORSRRRRRRRRRR", errors);
+      return res.status(400).json(errors);
+    }
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
         console.log("FOUND COURSE", course);
@@ -42,11 +71,11 @@ module.exports = {
               .catch(err => res.send("ERROR INSIDE"));
           });
         } else {
-          res.status(404);
-          console.log("NOT COURSE FOUND");
+          res.status(404).json({ courseType: "Course does not exist" });
         }
       })
       .catch(err => {
+        res.json(err);
         console.log(err, "COURSE TYPE NOT FOUND");
       });
   },

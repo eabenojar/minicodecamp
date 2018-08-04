@@ -3,6 +3,7 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const SIGN_IN = "SIGN_IN";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const GET_ERRORS = "GET_ERRORS";
 
 export const UPDATE_COURSE = "UPDATE_COURSE";
 export const UPDATE_LESSON = "UPDATE_LESSON";

@@ -124,16 +124,14 @@ pre[class*="language-"] {
 /* Responsive Design */
 
 @media only screen and (max-width: 1200px) {
-  .lesson-container {
-    height: 275px;
+  .lesson-container:nth-child(2n + 1) {
     width: 48%;
-    background-color: #fff;
-    border-radius: 0px;
     margin: 0 2% 50px 0%;
   }
 
   .lesson-container:nth-child(2n) {
     margin: 0 0% 50px 2%;
+    width: 48%;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -142,16 +140,24 @@ pre[class*="language-"] {
     width: 48%;
     background-color: #fff;
     border-radius: 0px;
-    margin-bottom: 50px;
+    margin: 0 0% 50px 0%;
   }
 }
 @media only screen and (max-width: 768px) {
-  .lesson-container {
+  .lesson-container:nth-child(2n + 1) {
+    width: 48%;
+  }
+
+  .lesson-container:nth-child(n) {
+    margin: 0 0% 50px 0%;
+    width: 48%;
+  }
+  .lesson-container:nth-child(n) {
     height: 275px;
     width: 100%;
     background-color: #fff;
     border-radius: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .home-page-description {
     font-size: 16px;
@@ -163,13 +169,6 @@ pre[class*="language-"] {
 }
 
 @media only screen and (max-width: 450px) {
-  .lesson-container {
-    height: 200px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 0px;
-    margin-bottom: 50px;
-  }
   .lesson-header {
     height: 25px;
     width: 100%;

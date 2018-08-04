@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import "../styles/createLesson.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback,
+  FormText
+} from "reactstrap";
 import { connect } from "react-redux";
 import { postLesson } from "../actions/coursesAction";
 
@@ -12,7 +20,8 @@ class CreateLesson extends Component {
       lessonNumber: "",
       lessonTitle: "",
       lessonDescription: "",
-      lessonCode: ""
+      lessonCode: "",
+      errors: {}
     };
   }
   handleChange = event => {
@@ -22,6 +31,16 @@ class CreateLesson extends Component {
       [name]: value
     });
   };
+  componentWillReceiveProps(nextProps) {
+    console.log("WILL RECEIVE PROPS", nextProps.state.errorReducer);
+    if (Object.keys(nextProps.state.errorReducer).length !== 0) {
+      this.setState({ errors: nextProps.state.errorReducer });
+    }
+    if (nextProps.state.courseReducer.courses.length === 1) {
+      console.log("LESSON CREATED");
+      this.props.history.push("/course");
+    }
+  }
   submitForm = event => {
     console.log("STATE", this.state);
     this.props.postLesson(this.state);
@@ -39,51 +58,136 @@ class CreateLesson extends Component {
               <Form onSubmit={this.submitForm}>
                 <FormGroup>
                   <Label for="exampleEmail">Course Type</Label>
-                  <Input
-                    type="text"
-                    name="courseType"
-                    id="courseType"
-                    placeholder="Enter Course Type"
-                    onChange={this.handleChange}
-                  />
+                  {Object.keys(this.state.errors).length !== 0 &&
+                  this.state.errors.courseType ? (
+                    <div>
+                      <Input
+                        invalid
+                        type="text"
+                        name="courseType"
+                        id="courseType"
+                        placeholder="Enter Course Title"
+                        onChange={this.handleChange}
+                      />
+                      <FormFeedback>
+                        {this.state.errors.courseType}
+                      </FormFeedback>
+                    </div>
+                  ) : (
+                    <Input
+                      type="text"
+                      name="courseType"
+                      id="courseType"
+                      placeholder="Enter Course Title"
+                      onChange={this.handleChange}
+                    />
+                  )}
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleNumber">Lesson Number</Label>
-                  <Input
-                    type="number"
-                    name="lessonNumber"
-                    id="lessonNumber"
-                    placeholder="Enter lesson number"
-                    onChange={this.handleChange}
-                  />
+
+                  {Object.keys(this.state.errors).length !== 0 &&
+                  this.state.errors.lessonNumber ? (
+                    <div>
+                      <Input
+                        invalid
+                        type="number"
+                        name="lessonNumber"
+                        id="lessonNumber"
+                        placeholder="Enter lesson number"
+                        onChange={this.handleChange}
+                      />
+                      <FormFeedback>
+                        {this.state.errors.lessonNumber}
+                      </FormFeedback>
+                    </div>
+                  ) : (
+                    <Input
+                      type="number"
+                      name="lessonNumber"
+                      id="lessonNumber"
+                      placeholder="Enter lesson number"
+                      onChange={this.handleChange}
+                    />
+                  )}
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleText">Lesson Title</Label>
-                  <Input
-                    type="text"
-                    name="lessonTitle"
-                    id="lessonTitle"
-                    onChange={this.handleChange}
-                  />
+
+                  {Object.keys(this.state.errors).length !== 0 &&
+                  this.state.errors.lessonTitle ? (
+                    <div>
+                      <Input
+                        invalid
+                        type="text"
+                        name="lessonTitle"
+                        id="lessonTitle"
+                        onChange={this.handleChange}
+                      />
+                      <FormFeedback>
+                        {this.state.errors.lessonTitle}
+                      </FormFeedback>
+                    </div>
+                  ) : (
+                    <Input
+                      type="text"
+                      name="lessonTitle"
+                      id="lessonTitle"
+                      onChange={this.handleChange}
+                    />
+                  )}
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleText">Lesson Description</Label>
-                  <Input
-                    type="textarea"
-                    maxLength="800"
-                    name="lessonDescription"
-                    id="lessonDescription"
-                    onChange={this.handleChange}
-                  />
+                  {Object.keys(this.state.errors).length !== 0 &&
+                  this.state.errors.lessonDescription ? (
+                    <div>
+                      <Input
+                        invalid
+                        type="textarea"
+                        maxLength="800"
+                        name="lessonDescription"
+                        id="lessonDescription"
+                        onChange={this.handleChange}
+                      />
+                      <FormFeedback>
+                        {this.state.errors.lessonDescription}
+                      </FormFeedback>
+                    </div>
+                  ) : (
+                    <Input
+                      type="textarea"
+                      maxLength="800"
+                      name="lessonDescription"
+                      id="lessonDescription"
+                      onChange={this.handleChange}
+                    />
+                  )}
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleText">Lesson Code</Label>
-                  <Input
-                    type="textarea"
-                    name="lessonCode"
-                    id="lessonCode"
-                    onChange={this.handleChange}
-                  />
+                  {Object.keys(this.state.errors).length !== 0 &&
+                  this.state.errors.lessonCode ? (
+                    <div>
+                      <Input
+                        invalid
+                        type="textarea"
+                        name="lessonCode"
+                        id="lessonCode"
+                        onChange={this.handleChange}
+                      />
+                      <FormFeedback>
+                        {this.state.errors.lessonCode}
+                      </FormFeedback>
+                    </div>
+                  ) : (
+                    <Input
+                      type="textarea"
+                      name="lessonCode"
+                      id="lessonCode"
+                      onChange={this.handleChange}
+                    />
+                  )}
                 </FormGroup>
                 <Button color="success">Submit</Button>
               </Form>
