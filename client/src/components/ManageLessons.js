@@ -120,7 +120,7 @@ class ManageLessons extends Component {
                 </div>
               );
             })
-          ) : this.props.location.state.length === 0 ? (
+          ) : this.props.location.state.lesson.length === 0 ? (
             <div className="no-lessons-container">
               <h1>No Lessons Available</h1>
             </div>

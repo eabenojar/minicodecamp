@@ -134,12 +134,3 @@ export const updateLesson = (id, lesson) => dispatch => {
     })
     .catch(err => console.log(err));
 };
-
-export const userLogin = user => dispatch => {
-  axios.post("/login", user).then(res => {
-    dispatch({
-      type: SIGN_IN,
-      payload: res.data
-    });
-  });
-};

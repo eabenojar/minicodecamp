@@ -1,4 +1,9 @@
-import { AUTH_USER, SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types";
+import {
+  AUTH_USER,
+  SET_CURRENT_USER,
+  LOGOUT_CURRENT_USER,
+  GET_ERRORS
+} from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
@@ -30,7 +35,13 @@ export const loginUser = userData => dispatch => {
       // Set current user
       dispatch(setCurrentUser(decoded));
     })
-    .catch(err => console.log(err, "error in action login"));
+    .catch(err => {
+      console.log("INSIDE SIGNIN ERRORS", err);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
 
 export const setCurrentUser = decoded => {

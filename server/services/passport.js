@@ -4,6 +4,9 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const LocalStrategy = require("passport-local");
 
+// Validation
+const validateSignIn = require("../validation/auth");
+
 // Create local strategy
 const localOptions = { usernameField: "email" };
 const localLogin = new LocalStrategy(localOptions, function(
@@ -14,12 +17,30 @@ const localLogin = new LocalStrategy(localOptions, function(
   // Verify this username and password, call done with the user
   // if it is the correct username and password
   // otherwise, call done with false
+  console.log("INSIDE PASSPORT", email, password);
+  const { errors, isValid } = validateSignIn({
+    email: email,
+    password: password
+  });
+
+  // // Check Validation
+  // if (!isValid) {
+  //   console.log("INVALID ");
+  //   return res.status(400).json({ errors });
+  // }
   console.log("INSIDE LOCAL STRATEGY");
   User.findOne({ email: email }, function(err, user) {
     if (err) {
+      console.log("ERROR CANT FIND");
+      return res.status(400).json({ test: "TESTETETS3231ETE" });
+
       return done(err);
     }
     if (!user) {
+      console.log("ERROR CANT FIfafaeffeND");
+
+      return res.status(400).json({ test: "TESTETETSETE2332" });
+
       return done(null, false);
     }
     console.log("INSIDE SEVER FOUND", email, password);
@@ -29,7 +50,8 @@ const localLogin = new LocalStrategy(localOptions, function(
         return done(err);
       }
       if (!isMatch) {
-        return done(null, false);
+        console.log("WRONG PASSWORD");
+        return done(null, false, { password: "Incorrect Password" });
       }
       return done(null, user);
     });
