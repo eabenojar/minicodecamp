@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCourses, deleteCourse } from "../actions/coursesAction";
-import { Link } from "react-router-dom";
 import "../styles/home.css";
 import "../styles/manageCourses.css";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
@@ -17,14 +16,12 @@ class ManageCourses extends Component {
     this.props.getCourses();
   }
   deleteCourse = lesson => {
-    console.log("DELETED", lesson);
     this.props.deleteCourse(lesson._id);
     this.setState({
       modal: !this.state.modal
     });
   };
   editCourse = lesson => {
-    console.log("EDIT", lesson);
     this.props.history.push({
       pathname: `/admin/dashboard/manage/courses/update/${lesson._id}`,
       state: {
@@ -34,7 +31,6 @@ class ManageCourses extends Component {
     });
   };
   viewLessons = lesson => {
-    console.log("LESSONS", lesson);
     this.props.history.push({
       pathname: "/admin/dashboard/manage/lessons",
       state: {
@@ -44,13 +40,11 @@ class ManageCourses extends Component {
     });
   };
   toggle = lesson => {
-    console.log(lesson);
     this.setState({
       modal: !this.state.modal
     });
   };
   render() {
-    console.log("THIS PROPS MANAGE COURSES", this.props);
     return (
       <div className="manage-courses-container">
         <div className="manage-intro-section">

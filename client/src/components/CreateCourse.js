@@ -6,12 +6,10 @@ import {
   FormGroup,
   Label,
   Input,
-  FormFeedback,
-  FormText
+  FormFeedback
 } from "reactstrap";
 import { connect } from "react-redux";
 import { postCourse } from "../actions/coursesAction";
-import { Link } from "react-router-dom";
 
 class CreateCourse extends Component {
   constructor(props) {
@@ -26,29 +24,24 @@ class CreateCourse extends Component {
     };
   }
   componentDidUpdate() {
-    console.log("DID UPDATE", this.props);
     if (
       this.props.state.courseReducer.courses.length === 1 &&
       this.state.created === false
     ) {
-      console.log("CREATE COURSE UPDATE");
       this.setState({
         created: true
       });
     }
   }
   componentWillReceiveProps(nextProps) {
-    console.log("WILL RECEIVE PROPS", nextProps.state.errorReducer);
     if (Object.keys(nextProps.state.errorReducer).length !== 0) {
       this.setState({ errors: nextProps.state.errorReducer });
     }
     if (nextProps.state.courseReducer.courses.length === 1) {
-      console.log("COURSE CREATED");
       this.props.history.push("/course");
     }
   }
   handleChange = event => {
-    // console.log(event.target.value);
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -56,20 +49,16 @@ class CreateCourse extends Component {
     });
   };
   submitForm = event => {
-    console.log("STATE", this.state);
     this.props.postCourse(this.state);
 
     event.preventDefault();
   };
   resetPage = () => {
-    console.log("RESET");
     this.setState({
       created: false
     });
-    console.log("RESET STATE", this.state.created);
   };
   render() {
-    console.log(this.props, "RENDER CREATE COURSE");
     return (
       <div className="course-container">
         {this.props.state.auth.isAuthenticated &&

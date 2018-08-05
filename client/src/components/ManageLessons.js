@@ -5,10 +5,8 @@ import {
   deleteLesson,
   manageOneCourse
 } from "../actions/coursesAction";
-import { Link } from "react-router-dom";
 import "../styles/home.css";
 import "../styles/manageCourses.css";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 class ManageLessons extends Component {
   constructor(props) {
@@ -24,38 +22,28 @@ class ManageLessons extends Component {
   };
   componentDidMount() {
     // this.props.getCourses();
-    console.log("THIS COMP DID MOUNT", this.props.location);
     this.props.manageOneCourse(this.props.location.state.id);
   }
-  componentWillUpdate() {
-    console.log("this will update", this.props);
-  }
-  componentDidUpdate() {
-    console.log("UPDATEEEEEEEE", this.props);
-  }
+
   deleteLesson = lesson => {
-    console.log("DELETED", lesson);
     this.props.deleteLesson(lesson);
     // this.setState({
     //   modal: !this.state.modal
     // });
   };
   editCourse = lesson => {
-    console.log("EDIT", lesson);
     this.props.history.push({
       pathname: `/admin/dashboard/manage/lessons/update/${lesson._id}`,
       state: lesson
     });
   };
   viewLessons = lesson => {
-    console.log("LESSONS", lesson);
     this.props.history.push({
       pathname: "/admin/dashboard/manage/lessons",
       state: lesson.lessons
     });
   };
   render() {
-    console.log("RENDER MANAGE PROPS", this.props);
     return (
       <div className="manage-courses-container">
         <div className="manage-intro-section">

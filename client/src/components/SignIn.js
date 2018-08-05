@@ -16,7 +16,6 @@ class SignIn extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.state.auth.isAuthenticated) {
-      console.log("ITS LITTTT");
       this.props.history.push("/admin/dashboard");
     }
 
@@ -30,15 +29,12 @@ class SignIn extends Component {
     this.setState({
       [name]: value
     });
-    console.log("this props signin", this.state);
   };
   submitForm = event => {
-    console.log("STATE", this.state);
     this.props.loginUser(this.state);
     event.preventDefault();
   };
   render() {
-    console.log(this.props);
     return (
       <div className="course-container">
         <div className="create-course-title-section">

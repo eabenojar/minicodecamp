@@ -16,20 +16,25 @@ class EditCourse extends Component {
     };
   }
   handleChange = event => {
-    // console.log(event.target.value);
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
       [name]: value
     });
   };
+
+  componentWillReceiveProps(nextProps) {
+    nextProps.state.courseReducer.courses.forEach(type => {
+      if (type.courseType === this.state.courseType) {
+        this.props.history.push("/admin/dashboard/manage/courses");
+      }
+    });
+  }
   submitForm = event => {
-    console.log("STATE", this.state);
     this.props.updateCourse(this.props.location.state.id, this.state);
     event.preventDefault();
   };
   render() {
-    console.log(this.props, "RENDER CREATE COURSE");
     return (
       <div className="course-container">
         {this.props.state.auth.isAuthenticated ? (

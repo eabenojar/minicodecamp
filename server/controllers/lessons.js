@@ -210,7 +210,7 @@ module.exports = {
   updateCourse: (req, res) => {
     const id = req.params.id;
     console.log("INSIDE UPDATE COURSE", id, req.body);
-    Course.findByIdAndUpdate(id, req.body)
+    Course.findByIdAndUpdate(id, req.body, { new: true })
       .populate("lessons")
       .then(course => {
         course.lessons.map(lesson => {

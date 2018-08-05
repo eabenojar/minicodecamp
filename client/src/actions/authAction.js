@@ -1,9 +1,4 @@
-import {
-  AUTH_USER,
-  SET_CURRENT_USER,
-  LOGOUT_CURRENT_USER,
-  GET_ERRORS
-} from "./types";
+import { AUTH_USER, SET_CURRENT_USER, GET_ERRORS } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
@@ -19,7 +14,6 @@ export const signup = ({ email, password }) => {
 
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
-  console.log("INSIDE LOGIN USER", userData);
   axios
     .post("/admin/signin", userData)
     .then(res => {
@@ -36,7 +30,6 @@ export const loginUser = userData => dispatch => {
       dispatch(setCurrentUser(decoded));
     })
     .catch(err => {
-      console.log("INSIDE SIGNIN ERRORS", err);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data

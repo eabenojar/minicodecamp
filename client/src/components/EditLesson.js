@@ -9,7 +9,6 @@ class EditLesson extends Component {
     super(props);
     const { state } = this.props.location;
     this.state = {
-      //   courseType: "",
       lessonNumber: state.lessonNumber,
       lessonTitle: state.lessonTitle,
       lessonDescription: state.lessonDescription,
@@ -23,16 +22,23 @@ class EditLesson extends Component {
       [name]: value
     });
   };
-  componentWillUpdate() {
-    console.log("WILL UPDATE PROPS", this.props);
+  componentWillReceiveProps(nextProps) {
+    const result = nextProps.state.courseReducer.lessons[0];
+    if (
+      result.lessonNumber === this.state.lessonNumber ||
+      result.lessonTitle === this.state.lessonTitle ||
+      result.lessonDescription === this.state.lessonDescription ||
+      result.lessonCode === this.state.lessonCode
+    ) {
+      this.props.history.goBack();
+    }
   }
+
   submitForm = event => {
-    console.log("STATE", this.state);
     this.props.updateLesson(this.props.location.state._id, this.state);
     event.preventDefault();
   };
   render() {
-    console.log("EDIT LESSONS PROPS", this.props);
     return (
       <div className="course-container">
         {this.props.state.auth.isAuthenticated ? (

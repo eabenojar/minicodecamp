@@ -20,7 +20,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_COURSES:
-      console.log("GET COURCES", action.payload);
       return {
         ...state,
         courses: action.payload
@@ -54,15 +53,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         courses: state.courses.map(course => {
-          console.log(course, "TESTING");
           if (course.courseType === action.payload.courseType) {
-            console.log("DOES THIS WORK", action.id);
-
             const result = course.lessons.filter(
               lessons => lessons._id !== action.id
             );
             course.lessons = result;
-            console.log("WORKED", course.lessons);
           }
           return course;
         }),
@@ -71,7 +66,12 @@ export default function(state = initialState, action) {
     case UPDATE_COURSE:
       return {
         ...state,
-        courses: [...state.courses, action.payload]
+        courses: state.courses.map(course => {
+          if (course._id === action.payload._id) {
+            return (course = action.payload);
+          }
+          return course;
+        })
       };
     case UPDATE_LESSON:
       return {

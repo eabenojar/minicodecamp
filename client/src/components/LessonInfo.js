@@ -12,18 +12,14 @@ class LessonInfo extends Component {
     lessonNum: 0
   };
   componentDidMount() {
-    console.log(this.props, "COMP DID MOUNT LESSON INFO");
     this.props.getOneCourse(this.props.location.state.lesson._id);
   }
-  componentDidUpdate() {
-    console.log("UPDATEEEEEEEE");
-  }
+
   showLesson = number => {
     this.setState({
       showLesson: true,
       lessonNum: number
     });
-    console.log(number, this.state.lessonNum);
   };
   hideLesson = () => {
     this.setState({
@@ -38,11 +34,7 @@ class LessonInfo extends Component {
   render() {
     const { location } = this.props;
     const { state } = location;
-    console.log(
-      "RENDER",
-      this.props,
-      this.props.state.courseReducer.courses.length
-    );
+
     return (
       <div>
         {this.props.state.courseReducer.lessons.lessons &&

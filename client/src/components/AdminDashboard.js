@@ -4,11 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class AdminDashboard extends Component {
-  componentDidMount() {
-    console.log(this.props, "DASHBOARD PROPS");
-  }
+  componentDidMount() {}
   render() {
-    console.log(this.props, "RENDER DASH");
     return (
       <div className="dashboard-container">
         {this.props.state.auth.isAuthenticated ? (

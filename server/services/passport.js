@@ -18,29 +18,28 @@ const localLogin = new LocalStrategy(localOptions, function(
   // if it is the correct username and password
   // otherwise, call done with false
   console.log("INSIDE PASSPORT", email, password);
-  const { errors, isValid } = validateSignIn({
-    email: email,
-    password: password
-  });
+  if (email === "" && password === "") {
+    console.log("EMPTY");
+  }
+  // const { errors, isValid } = validateSignIn({
+  //   email: "",
+  //   password: ""
+  // });
 
   // // Check Validation
   // if (!isValid) {
   //   console.log("INVALID ");
   //   return res.status(400).json({ errors });
   // }
-  console.log("INSIDE LOCAL STRATEGY");
+  // console.log("INSIDE LOCAL STRATEGY");
   User.findOne({ email: email }, function(err, user) {
     if (err) {
       console.log("ERROR CANT FIND");
-      return res.status(400).json({ test: "TESTETETS3231ETE" });
 
       return done(err);
     }
     if (!user) {
       console.log("ERROR CANT FIfafaeffeND");
-
-      return res.status(400).json({ test: "TESTETETSETE2332" });
-
       return done(null, false);
     }
     console.log("INSIDE SEVER FOUND", email, password);

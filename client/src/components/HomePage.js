@@ -15,7 +15,6 @@ class HomePage extends Component {
     this.props.getCourses();
   }
   render() {
-    console.log(this.props, "HOMEPAGE PROPS");
     const { state } = this.props;
     return (
       <div className="home-page">

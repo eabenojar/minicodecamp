@@ -5,9 +5,7 @@ import "prismjs/themes/prism.css";
 import "prismjs/prism.js";
 
 class Lesson extends Component {
-  viewCourse = lesson => {
-    console.log("clicked", lesson);
-  };
+  viewCourse = lesson => {};
   render() {
     var colors = ["#FF7373", "#73FF86", "#739BFF", "#FFCA73"];
     var random_color = colors[Math.floor(Math.random() * colors.length)];

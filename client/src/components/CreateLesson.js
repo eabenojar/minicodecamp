@@ -6,8 +6,7 @@ import {
   FormGroup,
   Label,
   Input,
-  FormFeedback,
-  FormText
+  FormFeedback
 } from "reactstrap";
 import { connect } from "react-redux";
 import { postLesson } from "../actions/coursesAction";
@@ -32,17 +31,14 @@ class CreateLesson extends Component {
     });
   };
   componentWillReceiveProps(nextProps) {
-    console.log("WILL RECEIVE PROPS", nextProps.state.errorReducer);
     if (Object.keys(nextProps.state.errorReducer).length !== 0) {
       this.setState({ errors: nextProps.state.errorReducer });
     }
     if (nextProps.state.courseReducer.courses.length === 1) {
-      console.log("LESSON CREATED");
       this.props.history.push("/course");
     }
   }
   submitForm = event => {
-    console.log("STATE", this.state);
     this.props.postLesson(this.state);
     event.preventDefault();
   };

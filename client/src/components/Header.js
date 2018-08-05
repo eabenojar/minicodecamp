@@ -6,8 +6,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from "reactstrap";
 import { connect } from "react-redux";
 import { logoutCurrentUser } from "../actions/authAction";
@@ -22,7 +21,6 @@ class Header extends Component {
     });
   };
   logout = () => {
-    console.log("LOGOUT FAM");
     this.props.logoutCurrentUser();
     this.props.history.push("/course");
   };
@@ -70,25 +68,6 @@ class Header extends Component {
             )}
           </Navbar>
         </div>
-
-        {/* <div className="header-section">
-          <div className="header-section-left">
-            <Link className="header-link" to="/course">
-              Courses
-            </Link>
-            <Link className="header-link" to="/course">
-              Quizes
-            </Link>
-            <Link className="header-link" to="/course">
-              Projects
-            </Link>
-          </div>
-          <div className="header-section-right">
-            <Link className="header-link" to="/signin">
-              Sign in
-            </Link>
-          </div>
-        </div> */}
       </div>
     );
   }

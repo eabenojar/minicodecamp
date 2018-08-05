@@ -16,15 +16,12 @@ module.exports = {
   signin: function(req, res, next) {
     // User has already had their email and password auth'd
     // We just need to give them a token
-    if (false) {
-      console.log("INSIDE SIGNIN CONTROLLER");
-    }
+
     res.send({ token: tokenForUser(req.user) });
   },
   signup: function(req, res, next) {
     const email = req.body.email;
     const password = req.body.password;
-    console.log(process.env.SECRET);
     if (!email || !password) {
       return res
         .status(422)

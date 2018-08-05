@@ -1,8 +1,4 @@
-import {
-  SIGN_IN,
-  SET_CURRENT_USER,
-  LOGOUT_CURRENT_USER
-} from "../actions/types";
+import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/types";
 import isEmpty from "../validation/isEmpty";
 
 const INITIAL_STATE = {
