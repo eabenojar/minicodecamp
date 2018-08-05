@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "../styles/lessonInfo.css";
 import { connect } from "react-redux";
 import { getOneCourse } from "../actions/coursesAction";
-import "prismjs/themes/prism.css";
-import "prismjs/prism.js";
+import Prism from "prismjs";
+// import "prismjs/themes/prism-tomorrow.css";
 const beautify = require("js-beautify").js_beautify;
 
 class LessonInfo extends Component {
@@ -13,6 +13,12 @@ class LessonInfo extends Component {
   };
   componentDidMount() {
     this.props.getOneCourse(this.props.location.state.lesson._id);
+    console.log("PRISM HIGHLIGHT");
+    Prism.highlightAll();
+  }
+  componentDidUpdate() {
+    console.log("PRISM HIGHLIGHT UPDATE");
+    Prism.highlightAll();
   }
 
   showLesson = number => {
@@ -27,8 +33,8 @@ class LessonInfo extends Component {
     });
   };
   loadCode = lesson => (
-    <pre className="language-javascript">
-      <code className="language-javascript">{beautify(lesson.lessonCode)}</code>
+    <pre>
+      <code className="language-javascript">{lesson.lessonCode}</code>
     </pre>
   );
   render() {
@@ -43,12 +49,12 @@ class LessonInfo extends Component {
             <div className="lesson-page-title-section">
               <h2 className="lesson-page-title">{this.courseType} Lessons</h2>
             </div>
-            <div className="lesson-content language-javascript">
+            <div className="lesson-content language-jsx">
               {this.props.state.courseReducer.lessons.lessons.map(
                 (lesson, i) => {
                   return (
                     <div
-                      className="lesson-section language-javascript"
+                      className="lesson-section language-jsx"
                       style={{
                         borderLeft: `${state.lesson.courseColor} `
                           ? `6px solid ${state.lesson.courseColor}`

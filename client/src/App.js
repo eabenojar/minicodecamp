@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header";
 import router from "./router";
 import "./styles/App.css";
-import "prismjs/themes/prism.css";
-import "prismjs/prism.js";
+
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser } from "./actions/authAction";
 import store from "./store";
 import Footer from "./components/Footer";
+import "prismjs/prism.js";
+import Prism from "prismjs";
+import "prismjs/themes/prism.css";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -22,6 +25,9 @@ if (localStorage.jwtToken) {
 }
 
 class App extends Component {
+  componentDidMount() {
+    Prism.highlightAll();
+  }
   render() {
     return (
       <div>
