@@ -111,7 +111,9 @@ module.exports = {
       .populate("lessons")
       .then(course => res.send(course))
       .catch(err => {
-        console.log(err);
+        console.log("IN SERVER CANT GET COURSES");
+        res.status(404).json({error: "Course not found"});
+
         res.send("ERROR COULD NOT RETRIEVE COURSES");
       });
   },

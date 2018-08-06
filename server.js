@@ -22,7 +22,7 @@ const db = process.env.MONGO_URI;
 mongoose
   .connect(db)
   .then(() => console.log("MONGO IS CONNECTED"))
-  .catch(err => console.log(err));
+  .catch(err => console.log('MONGO CAN"T CONNECT'));
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
