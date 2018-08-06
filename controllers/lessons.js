@@ -68,7 +68,7 @@ module.exports = {
               .then(course => {
                 res.json(course);
               })
-              .catch(err => res.send("ERROR INSIDE"));
+              .catch(err => res.status(404));
           });
         } else {
           res.status(404).json({ courseType: "Course does not exist" });
@@ -89,7 +89,7 @@ module.exports = {
       })
       .catch(err => {
         console.log(err);
-        res.send("ERRR");
+        res.json(err);
       });
   },
   manageOneCourse: (req, res) => {
@@ -102,19 +102,17 @@ module.exports = {
       })
       .catch(err => {
         console.log(err);
-        res.send("ERRR");
+        res.json(err);
       });
   },
   getAllCourses: (req, res) => {
     console.log("IN SERVER GET COURSES");
     Course.find()
       .populate("lessons")
-      .then(course => res.send(course))
+      .then(course => res.json(course))
       .catch(err => {
         console.log("IN SERVER CANT GET COURSES");
-        res.status(404).json({error: "Course not found"});
-
-        res.send("ERROR COULD NOT RETRIEVE COURSES");
+        res.status(404).json({ error: "Course not found" });
       });
   },
   deleteLesson: (req, res) => {
@@ -146,7 +144,7 @@ module.exports = {
       })
       .catch(err => {
         console.log(err);
-        res.send("COULD NOT FIND COURSE");
+        res.json(err);
       });
   },
   deleteCourse: (req, res) => {
@@ -160,12 +158,12 @@ module.exports = {
           })
           .catch(err => {
             console.log(err);
-            res.send("CANT FIND LESSONS");
+            res.json("CANT FIND LESSONS");
           });
       })
       .catch(err => {
         console.log(err);
-        res.send('ERROR CAN"T FIND COURSE');
+        res.status(404);
       });
   },
   // updateCourse: (req, res) => {
@@ -230,7 +228,7 @@ module.exports = {
       })
       .catch(err => {
         console.log(err);
-        res.send("ERROR CAN NOT FUND COURSE");
+        res.status(404);
       });
   },
   updateLesson: (req, res) => {
