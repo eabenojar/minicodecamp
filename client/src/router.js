@@ -11,9 +11,11 @@ import ManageCourses from "./components/ManageCourses";
 import ManageLessons from "./components/ManageLessons";
 import EditCourse from "./components/EditCourse";
 import EditLesson from "./components/EditLesson";
+import MainPage from "./components/MainPage";
 
 export default (
   <Switch>
+    <Route component={MainPage} exact path="/" />
     <Route component={HomePage} exact path="/course" />
     <Route component={Signup} path="/signup" />
     <Route component={LessonInfo} path="/course/lessons/:id" />

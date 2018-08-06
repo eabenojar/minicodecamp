@@ -13,11 +13,10 @@ class LessonInfo extends Component {
   };
   componentDidMount() {
     this.props.getOneCourse(this.props.location.state.lesson._id);
-    console.log("PRISM HIGHLIGHT");
     Prism.highlightAll();
   }
   componentDidUpdate() {
-    console.log("PRISM HIGHLIGHT UPDATE");
+    console.log("PRISM HIGHLIGHT UPDATE", Prism);
     Prism.highlightAll();
   }
 
