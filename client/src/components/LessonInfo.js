@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getOneCourse } from "../actions/coursesAction";
 import Prism from "prismjs";
 // import "prismjs/themes/prism-tomorrow.css";
-const beautify = require("js-beautify").js_beautify;
+// const beautify = require("js-beautify").js_beautify;
 
 class LessonInfo extends Component {
   state = {
