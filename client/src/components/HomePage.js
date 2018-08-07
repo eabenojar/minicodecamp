@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Lesson from "./Lesson";
 import "../styles/home.css";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
+
 import { getCourses } from "../actions/coursesAction";
 import "prismjs/themes/prism.css";
 import "prismjs/prism.js";
@@ -12,12 +14,12 @@ class HomePage extends Component {
     this.state = {};
   }
   componentDidMount() {
-    // this.props.getCourses();
+    this.props.getCourses();
     console.log("THIS DID MOUNT HOME PAGE");
   }
 
   render() {
-    const { state } = this.props;
+    console.log(this.props);
     return (
       <div className="home-page">
         <div className="home-container">
@@ -29,9 +31,9 @@ class HomePage extends Component {
             </p>
           </div>
           <div className="courses-container">
-            {/* {this.props.state.courseReducer.courses.map((lesson, i) => {
+            {this.props.state.courseReducer.courses.map((lesson, i) => {
               return <Lesson key={i} lesson={lesson} />;
-            })} */}
+            })}
           </div>
         </div>
       </div>
@@ -45,7 +47,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getCourses }
-)(HomePage);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getCourses }
+  )(HomePage)
+);

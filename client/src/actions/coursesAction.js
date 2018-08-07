@@ -16,6 +16,7 @@ import axios from "axios";
 
 export const getCourses = () => dispatch => {
   axios.get("/courses").then(res => {
+    console.log("ITS LITT");
     dispatch({
       type: GET_COURSES,
       payload: res.data

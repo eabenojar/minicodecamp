@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import "../styles/header.css";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { connect } from "react-redux";
 import { logoutCurrentUser } from "../actions/authAction";
 import { Link } from "react-router-dom";
