@@ -13,6 +13,8 @@ class LessonInfo extends Component {
   };
   componentDidMount() {
     this.props.getOneCourse(this.props.location.state.lesson._id);
+    console.log("THIS DID MOUNT LESSON INFO PAGE");
+
     Prism.highlightAll();
   }
   componentDidUpdate() {

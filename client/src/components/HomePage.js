@@ -13,6 +13,7 @@ class HomePage extends Component {
   }
   componentDidMount() {
     this.props.getCourses();
+    console.log("THIS DID MOUNT HOME PAGE");
   }
 
   render() {
