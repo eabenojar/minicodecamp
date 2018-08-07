@@ -15,7 +15,7 @@ import {
 import axios from "axios";
 
 export const getCourses = () => dispatch => {
-  axios.get("/courses").then(res => {
+  axios.get("/api/courses").then(res => {
     console.log("ITS LITT");
     dispatch({
       type: GET_COURSES,
@@ -80,7 +80,7 @@ export const deleteCourse = id => dispatch => {
   });
 };
 export const getOneCourse = id => dispatch => {
-  axios.get(`/course/lessons/${id}`).then(res => {
+  axios.get(`/api/course/lessons/${id}`).then(res => {
     dispatch({
       type: GET_ONE_COURSE,
       payload: res.data

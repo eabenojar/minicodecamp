@@ -110,7 +110,11 @@ module.exports = {
     console.log("IN SERVER GET COURSES");
     Course.find()
       .populate("lessons")
-      .then(course => res.json(course))
+      .then(course => {
+        console.log("SUCCESS GET COURSES");
+
+        res.json(course);
+      })
       .catch(err => {
         console.log("IN SERVER CANT GET COURSES");
         res.status(404).json({ error: "Course not found" });

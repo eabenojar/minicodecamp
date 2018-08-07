@@ -14,9 +14,9 @@ module.exports = function(app) {
   app.post("/admin/signin", requireSignin, Authentication.signin);
   app.post("/create/course", lessons.createCourse);
   app.post("/create/lesson", lessons.createLesson);
-  app.get("/course/lessons/:id", lessons.getOneCourse);
+  app.get("/api/course/lessons/:id", lessons.getOneCourse);
   app.get("/admin/dashboard/manage/courses/:id", lessons.manageOneCourse);
-  app.get("/courses", lessons.getAllCourses);
+  app.get("/api/courses", lessons.getAllCourses);
   app.post("/admin/dashboard/manage/lessons", lessons.deleteLesson);
   app.delete("/admin/dashboard/manage/courses/:id", lessons.deleteCourse);
   app.put("/admin/dashboard/manage/courses/update/:id", lessons.updateCourse);
