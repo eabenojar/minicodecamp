@@ -16,7 +16,7 @@ import MainPage from "./components/MainPage";
 export default (
   <Switch>
     <Route component={MainPage} exact path="/" />
-    <Route component={HomePage} exact path="/course" />
+    <Route component={HomePage} exact path="/courses" />
     <Route component={Signup} exact path="/signup" />
     <Route component={LessonInfo} exact path="/course/lessons/:id" />
     <Route component={CreateCourse} exact path="/create/course" />

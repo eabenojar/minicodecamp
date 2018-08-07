@@ -81,6 +81,7 @@ module.exports = {
   },
   getOneCourse: (req, res) => {
     const id = req.params.id;
+
     Course.findById(id)
       .populate("lessons")
       .then(lesson => {

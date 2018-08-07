@@ -14,6 +14,7 @@ class HomePage extends Component {
   componentDidMount() {
     this.props.getCourses();
   }
+
   render() {
     const { state } = this.props;
     return (
@@ -27,7 +28,7 @@ class HomePage extends Component {
             </p>
           </div>
           <div className="courses-container">
-            {state.courseReducer.courses.map((lesson, i) => {
+            {this.props.state.courseReducer.courses.map((lesson, i) => {
               return <Lesson key={i} lesson={lesson} />;
             })}
           </div>

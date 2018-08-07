@@ -7,7 +7,7 @@ class MainPage extends Component {
     return (
       <div className="main-container">
         <h1 className="main-title">Welcome to Mini Code Camp</h1>
-        <Link className="main-link" to="/course">
+        <Link className="main-link" to="/courses">
           Start Learning
         </Link>
       </div>

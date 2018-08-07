@@ -38,7 +38,7 @@ class Header extends Component {
                     style={{
                       padding: 0
                     }}
-                    href="/course"
+                    href="/courses"
                   >
                     Courses
                   </NavbarBrand>
@@ -64,7 +64,7 @@ class Header extends Component {
                 </NavbarBrand>
               </Nav>
             ) : (
-              <NavbarBrand href="/course">Mini Code Camp</NavbarBrand>
+              <NavbarBrand href="/courses">Mini Code Camp</NavbarBrand>
             )}
           </Navbar>
         </div>
