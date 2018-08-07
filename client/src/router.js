@@ -17,11 +17,11 @@ export default (
   <Switch>
     <Route component={MainPage} exact path="/" />
     <Route component={HomePage} exact path="/course" />
-    <Route component={Signup} path="/signup" />
-    <Route component={LessonInfo} path="/course/lessons/:id" />
-    <Route component={CreateCourse} path="/create/course" />
-    <Route component={CreateLesson} path="/create/lesson" />
-    <Route component={SignIn} path="/admin/signin" />
+    <Route component={Signup} exact path="/signup" />
+    <Route component={LessonInfo} exact path="/course/lessons/:id" />
+    <Route component={CreateCourse} exact path="/create/course" />
+    <Route component={CreateLesson} exact path="/create/lesson" />
+    <Route component={SignIn} exact path="/admin/signin" />
     <Route component={AdminDashboard} exact path="/admin/dashboard" />
     <Route
       component={ManageCourses}
