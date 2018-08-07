@@ -12,7 +12,7 @@ class HomePage extends Component {
     this.state = {};
   }
   componentDidMount() {
-    this.props.getCourses();
+    // this.props.getCourses();
     console.log("THIS DID MOUNT HOME PAGE");
   }
 
@@ -29,9 +29,9 @@ class HomePage extends Component {
             </p>
           </div>
           <div className="courses-container">
-            {this.props.state.courseReducer.courses.map((lesson, i) => {
+            {/* {this.props.state.courseReducer.courses.map((lesson, i) => {
               return <Lesson key={i} lesson={lesson} />;
-            })}
+            })} */}
           </div>
         </div>
       </div>
