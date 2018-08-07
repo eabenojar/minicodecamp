@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const http = require("http");
+// const http = require("http");
 const morgan = require("morgan");
 const router = require("./router");
 const path = require("path");
@@ -27,14 +27,15 @@ mongoose
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("client/build"));
+  // app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, "client", "build")));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
 
 // Server Setup
 const port = process.env.PORT || 5000;
-const server = http.createServer(app);
-server.listen(port, () => console.log(`Server is lisening on ${port}`));
+// const server = http.createServer(app);
+app.listen(port, () => console.log(`Server is lisening on ${port}`));

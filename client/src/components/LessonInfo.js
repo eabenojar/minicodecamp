@@ -14,6 +14,7 @@ class LessonInfo extends Component {
   componentDidMount() {
     this.props.getOneCourse(this.props.location.state.lesson._id);
     Prism.highlightAll();
+    console.log("THIS PROPS DID MOUNT", this.props);
   }
   componentDidUpdate() {
     console.log("PRISM HIGHLIGHT UPDATE", Prism);
@@ -39,7 +40,7 @@ class LessonInfo extends Component {
   render() {
     const { location } = this.props;
     const { state } = location;
-
+    console.log("THIS PROPS RENDER", this.props);
     return (
       <div>
         {this.props.state.courseReducer.lessons.lessons &&
