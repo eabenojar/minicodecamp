@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { logoutCurrentUser } from "../actions/authAction";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   state = {
@@ -33,18 +34,18 @@ class Header extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="d-flex align-items-start" color="dark">
                 <NavItem>
-                  <NavbarBrand
+                  <Link
                     className="navbar-links"
                     style={{
                       padding: 0
                     }}
-                    href="/courses"
+                    to="/courses"
                   >
                     Courses
-                  </NavbarBrand>
+                  </Link>
                 </NavItem>
                 {/* <NavItem>
-                  <NavLink className="navbar-links" href="/course">
+                  <NavLink className="navbar-links" to="/course">
                     Quizes
                   </NavLink>
                 </NavItem> */}
@@ -52,19 +53,21 @@ class Header extends Component {
             </Collapse>
             {this.props.state.auth.isAuthenticated ? (
               <Nav>
-                <NavbarBrand className="navbar-links" href="/admin/dashboard">
+                <Link className="navbar-links" to="/admin/dashboard">
                   Dashboard
-                </NavbarBrand>
-                <NavbarBrand
+                </Link>
+                <Link
                   className="navbar-links"
                   onClick={this.logout}
                   style={{ color: "#FFF" }}
                 >
                   Logout
-                </NavbarBrand>
+                </Link>
               </Nav>
             ) : (
-              <NavbarBrand href="/courses">Mini Code Camp</NavbarBrand>
+              <Link className="navbar-links" to="/courses">
+                Mini Code Camp
+              </Link>
             )}
           </Navbar>
         </div>
