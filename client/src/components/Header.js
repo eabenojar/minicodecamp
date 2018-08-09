@@ -10,11 +10,12 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { logoutCurrentUser } from "../actions/authAction";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Header extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    logout: false
   };
   toggle = () => {
     this.setState({
@@ -22,9 +23,29 @@ class Header extends Component {
     });
   };
   logout = () => {
-    this.props.logoutCurrentUser();
-    this.props.history.push("/courses");
+    console.log("LOGOUT");
+    this.setState(
+      {
+        logout: true
+      },
+      () => {
+        this.props.logoutCurrentUser();
+      }
+    );
   };
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps, this.state.logout);
+    if (
+      nextProps.state.auth.isAuthenticated === false &&
+      this.state.logout === true
+    ) {
+      console.log("worked");
+      this.props.history.push("/courses");
+      this.setState({
+        logout: false
+      });
+    }
+  }
   render() {
     return (
       <div className="header-container">
@@ -81,7 +102,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { logoutCurrentUser }
-)(Header);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logoutCurrentUser }
+  )(Header)
+);

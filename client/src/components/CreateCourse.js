@@ -38,7 +38,7 @@ class CreateCourse extends Component {
       this.setState({ errors: nextProps.state.errorReducer });
     }
     if (nextProps.state.courseReducer.courses.length === 1) {
-      this.props.history.push("/course");
+      this.props.history.push("/courses");
     }
   }
   handleChange = event => {
