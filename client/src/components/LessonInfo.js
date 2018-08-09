@@ -3,7 +3,6 @@ import "../styles/lessonInfo.css";
 import { connect } from "react-redux";
 import { getOneCourse } from "../actions/coursesAction";
 import Prism from "prismjs";
-import { withRouter } from "react-router";
 
 class LessonInfo extends Component {
   state = {
@@ -127,9 +126,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { getOneCourse }
-  )(LessonInfo)
-);
+export default connect(
+  mapStateToProps,
+  { getOneCourse }
+)(LessonInfo);

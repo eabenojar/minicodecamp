@@ -32,7 +32,7 @@ export const getLessons = () => {
 
 export const postCourse = course => dispatch => {
   axios
-    .post("/create/course", course)
+    .post("/api/create/course", course)
     .then(res => {
       dispatch({
         type: POST_COURSE,
@@ -48,7 +48,7 @@ export const postCourse = course => dispatch => {
 };
 export const postLesson = lesson => dispatch => {
   axios
-    .post("/create/lesson", lesson)
+    .post("/api/create/lesson", lesson)
     .then(res => {
       dispatch({
         type: POST_LESSON,
@@ -63,7 +63,7 @@ export const postLesson = lesson => dispatch => {
     });
 };
 export const deleteLesson = lesson => dispatch => {
-  axios.post("/admin/dashboard/manage/lessons", lesson).then(res => {
+  axios.post("/api/admin/dashboard/manage/lessons", lesson).then(res => {
     dispatch({
       type: DELETE_LESSON,
       payload: res.data,
@@ -72,7 +72,7 @@ export const deleteLesson = lesson => dispatch => {
   });
 };
 export const deleteCourse = id => dispatch => {
-  axios.delete(`/admin/dashboard/manage/courses/${id}`).then(res => {
+  axios.delete(`/api/admin/dashboard/manage/courses/${id}`).then(res => {
     dispatch({
       type: DELETE_COURSE,
       payload: id
@@ -89,7 +89,7 @@ export const getOneCourse = id => dispatch => {
 };
 
 export const manageOneCourse = id => dispatch => {
-  axios.get(`/admin/dashboard/manage/courses/${id}`).then(res => {
+  axios.get(`/api/admin/dashboard/manage/courses/${id}`).then(res => {
     dispatch({
       type: MANAGE_COURSES,
       payload: res.data.lessons
@@ -99,7 +99,7 @@ export const manageOneCourse = id => dispatch => {
 
 export const updateCourse = (id, course) => dispatch => {
   axios
-    .put(`/admin/dashboard/manage/courses/update/${id}`, course)
+    .put(`/api/admin/dashboard/manage/courses/update/${id}`, course)
     .then(res => {
       dispatch({
         type: UPDATE_COURSE,
@@ -110,7 +110,7 @@ export const updateCourse = (id, course) => dispatch => {
 
 export const updateLesson = (id, lesson) => dispatch => {
   axios
-    .put(`/admin/dashboard/manage/lessons/update/${id}`, lesson)
+    .put(`/api/admin/dashboard/manage/lessons/update/${id}`, lesson)
     .then(res => {
       dispatch({
         type: UPDATE_LESSON,

@@ -15,7 +15,7 @@ export const signup = ({ email, password }) => {
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
   axios
-    .post("/admin/signin", userData)
+    .post("/api/admin/signin", userData)
     .then(res => {
       console.log("SUCESSS SIGNED IN");
       // Save to localstorage

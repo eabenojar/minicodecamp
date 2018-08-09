@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { postCourse } from "../actions/coursesAction";
 import { loginUser } from "../actions/authAction";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class SignIn extends Component {
   constructor(props) {

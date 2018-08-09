@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Lesson from "./Lesson";
 import "../styles/home.css";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
 
 import { getCourses } from "../actions/coursesAction";
 import "prismjs/themes/prism.css";
@@ -47,9 +46,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { getCourses }
-  )(HomePage)
-);
+export default connect(
+  mapStateToProps,
+  { getCourses }
+)(HomePage);

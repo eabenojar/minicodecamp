@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import "../styles/header.css";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 import { connect } from "react-redux";
 import { logoutCurrentUser } from "../actions/authAction";
 import { Link } from "react-router-dom";
@@ -16,7 +23,7 @@ class Header extends Component {
   };
   logout = () => {
     this.props.logoutCurrentUser();
-    this.props.history.push("/course");
+    this.props.history.push("/courses");
   };
   render() {
     return (
@@ -27,18 +34,18 @@ class Header extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="d-flex align-items-start" color="dark">
                 <NavItem>
-                  <Link
+                  <NavLink
                     className="navbar-links"
                     style={{
                       padding: 0
                     }}
-                    to="/courses"
+                    href="/courses"
                   >
                     Courses
-                  </Link>
+                  </NavLink>
                 </NavItem>
                 {/* <NavItem>
-                  <NavLink className="navbar-links" to="/course">
+                  <NavLink className="navbar-links" href="/course">
                     Quizes
                   </NavLink>
                 </NavItem> */}
@@ -46,21 +53,21 @@ class Header extends Component {
             </Collapse>
             {this.props.state.auth.isAuthenticated ? (
               <Nav>
-                <Link className="navbar-links" to="/admin/dashboard">
+                <NavLink className="navbar-links" href="/admin/dashboard">
                   Dashboard
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   className="navbar-links"
                   onClick={this.logout}
                   style={{ color: "#FFF" }}
                 >
                   Logout
-                </Link>
+                </NavLink>
               </Nav>
             ) : (
-              <Link className="navbar-links" to="/courses">
+              <NavLink className="navbar-links" href="/courses">
                 Mini Code Camp
-              </Link>
+              </NavLink>
             )}
           </Navbar>
         </div>
