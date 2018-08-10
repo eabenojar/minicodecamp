@@ -124,7 +124,6 @@ module.exports = {
     console.log("INSIDE DELETE LESSONS SERVER SIDE", req.body);
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
-        console.log("INSIDE COURSE INSIDE DELETE LESSON", course, req.body._id);
         if (course) {
           Lesson.findByIdAndRemove(req.body._id).then(lesson => {
             console.log("INSIDE LESSON", course.lessons, lesson);
@@ -134,7 +133,6 @@ module.exports = {
                 return item;
               }
             });
-            console.log("NEW LESSONS", newCourseLessons);
             course.lessons = newCourseLessons;
             console.log("AFTER COURSE", course.lessons);
             course
