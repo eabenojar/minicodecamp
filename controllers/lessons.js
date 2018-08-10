@@ -124,12 +124,12 @@ module.exports = {
     console.log("INSIDE DELETE LESSONS SERVER SIDE", req.body);
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
-        console.log("INSIDE COURSE INSIDE DELETE LESSON");
+        console.log("INSIDE COURSE INSIDE DELETE LESSON", course, req.body._id);
         if (course) {
-          Lesson.findOneAndRemove(req.body._id).then(lesson => {
-            console.log("INSIDE LESSON", course.lessons);
+          Lesson.findByIdAndRemove(req.body._id).then(lesson => {
+            console.log("INSIDE LESSON", course.lessons, lesson);
             const newCourseLessons = course.lessons.filter(item => {
-              console.log("EACAEEC", typeof item, typeof lesson._id.toString());
+              console.log("EACAEEC", item, lesson._id.toString());
               if (item.toString() !== lesson._id.toString()) {
                 return item;
               }

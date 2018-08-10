@@ -26,6 +26,7 @@ class ManageLessons extends Component {
   }
 
   deleteLesson = lesson => {
+    console.log(lesson);
     this.props.deleteLesson(lesson);
     // this.setState({
     //   modal: !this.state.modal
