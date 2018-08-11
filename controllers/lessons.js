@@ -107,28 +107,22 @@ module.exports = {
       });
   },
   getAllCourses: (req, res) => {
-    console.log("IN SERVER GET COURSES");
     Course.find()
       .populate("lessons")
       .then(course => {
-        console.log("SUCCESS GET COURSES");
-
         res.json(course);
       })
       .catch(err => {
-        console.log("IN SERVER CANT GET COURSES");
         res.status(404).json({ error: "Course not found" });
       });
   },
   deleteLesson: (req, res) => {
-    console.log("INSIDE DELETE LESSONS SERVER SIDE", req.body);
     Course.findOne({ courseType: req.body.courseType })
       .then(course => {
         if (course) {
           Lesson.findByIdAndRemove(req.body._id).then(lesson => {
-            console.log("INSIDE LESSON", course.lessons, lesson);
             const newCourseLessons = course.lessons.filter(item => {
-              console.log("EACAEEC", item, lesson._id.toString());
+              // console.log("EACAEEC", item, lesson._id.toString());
               if (item.toString() !== lesson._id.toString()) {
                 return item;
               }

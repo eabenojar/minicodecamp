@@ -80,30 +80,9 @@ class ManageLessons extends Component {
                     <button
                       className="manage-button-delete"
                       onClick={this.deleteLesson.bind(this, lesson)}
-                      // onClick={this.toggle}
                     >
                       Delete
                     </button>
-                    {/* <Modal
-                      isOpen={this.state.modal}
-                      toggle={this.toggle}
-                      className={this.props.className}
-                    >
-                      <ModalBody>
-                        Are you sure you want to delete this?
-                      </ModalBody>
-                      <ModalFooter>
-                        <Button
-                          color="primary"
-                          onClick={this.deleteLesson.bind(this, lesson)}
-                        >
-                          Delete
-                        </Button>{" "}
-                        <Button color="secondary" onClick={this.toggle}>
-                          Cancel
-                        </Button>
-                      </ModalFooter>
-                    </Modal> */}
                   </div>
                 </div>
               );
