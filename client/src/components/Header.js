@@ -23,7 +23,6 @@ class Header extends Component {
     });
   };
   logout = () => {
-    console.log("LOGOUT");
     this.setState(
       {
         logout: true
@@ -34,12 +33,10 @@ class Header extends Component {
     );
   };
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, this.state.logout);
     if (
       nextProps.state.auth.isAuthenticated === false &&
       this.state.logout === true
     ) {
-      console.log("worked");
       this.props.history.push("/courses");
       this.setState({
         logout: false

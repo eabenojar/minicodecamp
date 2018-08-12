@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import "prismjs/prism.js";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import { Link } from "react-router-dom";
 
 // Check for token
 if (localStorage.jwtToken) {

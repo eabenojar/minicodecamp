@@ -14,11 +14,9 @@ class HomePage extends Component {
   }
   componentDidMount() {
     this.props.getCourses();
-    console.log("THIS DID MOUNT HOME PAGE");
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="home-page">
         <div className="home-container">
