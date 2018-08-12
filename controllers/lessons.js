@@ -39,7 +39,6 @@ module.exports = {
       .catch(err => console.log("ERRRR", err));
   },
   createLesson: (req, res) => {
-    console.log("INSIDE FIRST LESSON", req.body);
     const { errors, isValid } = validateLesson(req.body);
 
     // Check Validation
@@ -146,7 +145,6 @@ module.exports = {
   },
   deleteCourse: (req, res) => {
     // req.body.courseType = req.query.coursetype;
-    console.log("INSIDE SERVER DELETE COURSE", req.params.id);
     Course.findByIdAndRemove(req.params.id)
       .then(course => {
         Lesson.deleteMany({ courseType: course.courseType })
@@ -206,7 +204,6 @@ module.exports = {
   // },
   updateCourse: (req, res) => {
     const id = req.params.id;
-    console.log("INSIDE UPDATE COURSE", id, req.body);
     Course.findByIdAndUpdate(id, req.body, { new: true })
       .populate("lessons")
       .then(course => {
