@@ -82,7 +82,7 @@ module.exports = {
     const id = req.params.id;
 
     Course.findById(id)
-      .populate("lessons")
+      .populate({ path: "lessons", options: { sort: { lessonNumber: 1 } } })
       .then(lesson => {
         console.log("INSIDE SERVER GET ONE COURSE", lesson);
         res.json(lesson);
