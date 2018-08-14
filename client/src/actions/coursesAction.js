@@ -104,6 +104,12 @@ export const updateCourse = (id, course) => dispatch => {
         type: UPDATE_COURSE,
         payload: res.data
       });
+    })
+    .catch(err => {
+      dispatch({
+        type: UPDATE_COURSE,
+        payload: err.response.data
+      });
     });
 };
 
