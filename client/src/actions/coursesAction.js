@@ -88,12 +88,20 @@ export const getOneCourse = id => dispatch => {
 };
 
 export const manageOneCourse = id => dispatch => {
-  axios.get(`/api/admin/dashboard/manage/courses/${id}`).then(res => {
-    dispatch({
-      type: MANAGE_COURSES,
-      payload: res.data.lessons
+  axios
+    .get(`/api/admin/dashboard/manage/courses/${id}`)
+    .then(res => {
+      dispatch({
+        type: MANAGE_COURSES,
+        payload: res.data.lessons
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: MANAGE_COURSES,
+        payload: err.response.data
+      });
     });
-  });
 };
 
 export const updateCourse = (id, course) => dispatch => {
