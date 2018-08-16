@@ -1,57 +1,63 @@
+$cool-red: #34495e;
+
 .header-container {
-  background-color: #34495e;
+  background-color: $cool-red;
   height: 8vh;
   width: 100vw;
   max-width: 100vw;
   margin-top: 0;
   display: flex;
   justify-content: center;
-  align-items: center; }
-
+  align-items: center;
+}
 .header-sub-container {
-  width: calc(85vw + 32px); }
-
+  width: calc(85vw + 32px);
+}
 .header-section {
   /* background-color: #f2f3f4; */
   height: 100%;
   width: 85%;
   display: flex;
   align-items: center;
-  justify-content: flex-end; }
-
+  justify-content: flex-end;
+}
 .header-section-right,
 .header-section-left {
   width: 50%;
   background-color: #3c4655;
   height: 100%;
   display: flex;
-  align-items: center; }
-
+  align-items: center;
+}
 .header-section-right {
-  justify-content: flex-end; }
-
+  justify-content: flex-end;
+}
 .header-link {
   font-family: sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
-  margin-right: 15px; }
+  margin-right: 15px;
+}
 
 .navbar-links {
   color: #fff;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  font-weight: 200; }
-
+  font-weight: 200;
+}
 .navbar-links:hover {
-  color: inherit; }
-
+  color: inherit;
+}
 .navbar-dark .navbar-brand {
   color: #fff;
-  font-size: 1rem; }
+  font-size: 1rem;
+}
 
 /* Responsive Design */
 @media only screen and (max-width: 768px) {
   .header-container {
-    height: auto; } }
+    height: auto;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/header.css";
+import "../styles/header.scss";
 import {
   Collapse,
   Navbar,
