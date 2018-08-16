@@ -113,7 +113,7 @@ class LessonInfo extends Component {
           </div>
         ) : (
           <div className="no-lessons-container">
-            <h1>Loading...</h1>
+            <h1 className="lds-ring">...</h1>
           </div>
         )}
       </div>
