@@ -6,22 +6,21 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
-}
+  flex-direction: column; }
+
 .create-course-form-title {
   font-size: 28px;
   font-weight: 400;
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
+
 .create-course-title-section {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 150px;
-  width: 400px;
-}
+  width: 400px; }
+
 .course-form {
   width: 400px;
   background-color: #fff;
-  padding: 25px;
-}
+  padding: 25px; }
