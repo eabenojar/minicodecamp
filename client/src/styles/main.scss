@@ -1,14 +1,18 @@
+@mixin flex($flex, $just, $align) {
+  display: $flex;
+  align-items: $just;
+  justify-content: $align;
+}
+
 .main-container {
   height: calc(92vh - 100px);
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; }
-
+  @include flex(flex, center, center);
+  flex-direction: column;
+}
 .main-title {
-  font-weight: 200; }
-
+  font-weight: 200;
+}
 .main-link {
   font-size: 18px;
   background-color: #76d7c4;
@@ -17,7 +21,9 @@
   font-weight: 200;
   text-decoration: none;
   border-radius: 3px;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .main-link:hover {
-  text-decoration: none; }
+  text-decoration: none;
+}
