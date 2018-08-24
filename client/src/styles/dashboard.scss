@@ -6,8 +6,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 .dashboard-title-section {
   width: 85vw;
   height: 125px;
@@ -15,15 +15,15 @@
   justify-content: flex-end;
   align-items: flex-start;
   flex-direction: column;
-  border-bottom: 1px solid grey; }
-
+  border-bottom: 1px solid grey;
+}
 .dashboard-title {
   font-size: 22px;
-  font-weight: 300; }
-
+  font-weight: 300;
+}
 .dashboard-description {
-  font-size: 16px; }
-
+  font-size: 16px;
+}
 .dashboard-section {
   /* min-height: calc(90vh - 125px); */
   height: auto;
@@ -33,8 +33,8 @@
   flex-direction: row;
   align-items: flex-start;
   flex-flow: row wrap;
-  padding: 0 0 25px 0; }
-
+  padding: 0 0 25px 0;
+}
 .create-section {
   margin-top: 50px;
   height: 250px;
@@ -43,22 +43,22 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 .create-section-title {
   font-size: 22px;
-  font-weight: 300; }
-
+  font-weight: 300;
+}
 .create-section-description {
   font-size: 14px;
   font-weight: 300;
-  padding: 15px 0; }
-
+  padding: 15px 0;
+}
 .create-section-header {
   height: 25px;
   width: 100%;
-  background-color: #3c4655; }
-
+  background-color: #3c4655;
+}
 .create-section-body {
   height: 100%;
   width: 100%;
@@ -66,8 +66,8 @@
   padding: 25px;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 .dashboard-button,
 .dashboard-button-manage {
   background-color: #43cb68;
@@ -77,37 +77,42 @@
   color: #fff;
   padding: 10px 20px;
   border: 1px solid transparent;
-  margin: 10px 0 0 0; }
-
+  margin: 10px 0 0 0;
+}
 .dashboard-button-manage {
-  background-color: #ff7b7b; }
-
+  background-color: #ff7b7b;
+}
 .dashboard-button:hover,
 .dashboard-button-manage:hover {
-  opacity: 0.8; }
-
+  opacity: 0.8;
+}
 .dashboard-admin-only {
   height: 92vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 .dashboard-admin-only h1 {
   font-weight: 200;
-  color: red; }
+  color: red;
+}
 
 @media only screen and (max-width: 1200px) {
   .create-section {
-    width: 48%; } }
-
+    width: 48%;
+  }
+}
 @media only screen and (max-width: 992px) {
   .create-section {
-    width: 100%; } }
-
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 768px) {
   .create-section-description {
     font-size: 12px;
     font-weight: 300;
-    padding: 10px 0; } }
+    padding: 10px 0;
+  }
+}
