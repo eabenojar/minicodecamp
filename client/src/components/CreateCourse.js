@@ -169,15 +169,7 @@ class CreateCourse extends Component {
             </div>
           </div>
         ) : (
-          // ) : this.props.state.auth.isAuthenticated &&
-          // this.state.created === true ? (
-          //   <div className="dashboard-admin-only">
-          //     <h1>Course Created</h1>
-          //     <Button onClick={this.resetPage} color="danger">
-          //       Create Another Course
-          //     </Button>
-          //   </div>
-          // ) : (
+          
           <div className="dashboard-admin-only">
             <h1>Admin Access Only</h1>
           </div>
