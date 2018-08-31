@@ -14,3 +14,4 @@ The application allows a user to get quick summaries of the main topics covered 
 - [React](https://reactjs.org/) - Front End Framework
 - [Redux](https://redux.js.org/) - State Container
 - [MongoDB](https://www.mongodb.com/) - Database
+- [React Router](https://github.com/ReactTraining/react-router) - Routing
