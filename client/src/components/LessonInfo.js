@@ -67,7 +67,9 @@ class LessonInfo extends Component {
                         {this.state.showLesson === true &&
                         this.state.lessonNum === lesson.lessonNumber ? (
                           <div>
-                            <p>{lesson.lessonDescription}</p>
+                            <p className="lesson-section__description">
+                              {lesson.lessonDescription}
+                            </p>
                             {this.loadCode(lesson)}
                             <button
                               onClick={this.hideLesson.bind(
